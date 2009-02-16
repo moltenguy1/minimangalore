@@ -1,0 +1,45 @@
+//------------------------------------------------------------------------------
+//  properties/playeranimationproperty.cc
+//  (C) 2007 Kim Hyoun Woo
+//------------------------------------------------------------------------------
+#include "properties/actoranimationproperty.h"
+#include "game/entity.h"
+#include "msg/gfxsetanimation.h"
+#include "msg/crouchrollleft.h"
+#include "msg/crouchrollright.h"
+
+namespace Properties
+{
+ImplementRtti(Properties::PlayerAnimationProperty, Game::Property);
+ImplementFactory(Properties::PlayerAnimationProperty);
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
+PlayerAnimationProperty::HandleMessage(Message::Msg* msg)
+{
+    //TODO: Put other player animation message handle code.
+ 
+    // various player actions.
+    if (msg->CheckId(Message::PlayerAction::Id))
+    {
+        PlayerAction* playerAction = (PlayerAction*)msg;
+	PlayerAction::Type type = playerAction->GetAnimationType();
+	switch(type)
+	{
+        case PlayerAction::CrouchLeft:
+            RequestAnimation("CrouchRollLeft", "", n_rand(0.0f, 1.0f));
+            break;
+        case PlayerAction::CrouchRight:
+            RequestAnimation("CrouchRollRight", "", n_rand(0.0f, 1.0f));
+            break;
+        default:
+            break;
+	}
+    }
+
+    ActorAnimationProperty::HandleMessage(msg);
+}
+
+}

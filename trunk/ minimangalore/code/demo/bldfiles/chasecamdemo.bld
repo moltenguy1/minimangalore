@@ -1,0 +1,164 @@
+#-----------------------------------------------------------------------------
+#  demo.bld
+#  ============
+#  demo package definition
+#
+#  (C)2007 Kim Hyoun Woo  
+#-----------------------------------------------------------------------------
+beginmodule chasecamdemostate
+    setdir demoapp
+    setfiles { demogamestate }
+    setheaders { demogamestate }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule chasecamdemo
+    setdir demoapp
+    setfiles { demo }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule chasecamdemoapp
+    setdir demoapp
+    setheaders {
+        demoapp
+    }
+    setfiles {
+        demoapp
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule demoproperties
+    setdir properties
+    setfiles {
+        playerinputproperty
+        playerphysicsproperty
+        playeranimationproperty
+        actorphysicsproperty2
+    }
+    setheaders {
+        playerinputproperty
+        playerphysicsproperty
+        playeranimationproperty
+        actorphysicsproperty2
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule demophysics
+    setdir physics
+    setfiles {
+        playerentity
+    }
+    setheaders {
+        playerentity
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule demomsg
+    setdir msg
+    setfiles {
+        playerstatus
+    }
+    setheaders {
+        playerstatus
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule demoluaserver
+    setdir script
+    setfiles {
+        luaserver
+        luascript
+        animscript
+    }
+    setheaders {
+        luaserver
+        luascript
+        animscript
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule demolevel
+    setdir level
+    setfiles {
+        base
+        effectwrapper
+        file
+        libreriamtrs
+        mapdoom
+        parserlex
+        parsermapdoom
+        parsermtr
+        parserprocdoom
+        procdoom
+        sistemadeficheros
+        utilidadesalgebra
+        frustum
+        d3dxhelper
+        tokenparser
+        stlutils
+        stdafx
+        stage
+        view
+    }
+    setheaders {
+        base
+        effectwrapper
+        file
+        libreriamtrs
+        mapdoom
+        parserlex
+        parsermapdoom
+        parsermtr
+        parserprocdoom
+        procdoom
+        sistemadeficheros
+        utilidadesalgebra
+        frustum
+        d3dxhelper
+        tokenparser
+        stlutils  
+        stdafx
+        stage
+        view
+    }
+    setlibs_win32 { shlwapi.lib }
+endmodule
+#-----------------------------------------------------------------------------
+begintarget chasecamdemoapp
+    annotate "Insert a brief annotation of the target"
+    settype exe
+    setmodules {
+        chasecamdemostate
+        chasecamdemo
+        chasecamdemoapp
+        demoproperties
+        demophysics
+        demomsg
+        demoluaserver 
+        demolevel
+    }
+    settargetdeps {
+        nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndshow
+        ndsound
+        ngui
+        nnetwork
+        ntoollib
+        mangalore
+        nlua
+        ziplib
+    }
+endtarget 
+#-----------------------------------------------------------------------------
+beginworkspace chasecamdemoworkspace
+    settargets {
+        chasecamdemoapp
+        mangalore
+    }
+endworkspace
+#-----------------------------------------------------------------------------
+# EOF
+#-----------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+#ifndef PROPERTIES_PLAYERANIMATIONPROPERTY_H
+#define PROPERTIES_PLAYERANIMATIONPROPERTY_H
+
+namespace Properties
+{
+class PlayerAnimationProperty : public ActorAnimationProperty
+{
+    DeclareRtti;
+    DeclareFactory(PlayerAnimProperty);
+
+public:
+    /// handle messages that may result to animation switch
+    virtual void HandleMessage(Message::Msg* msg);
+    
+};
+
+RegisterFactory(PlayerAnimationProperty);
+
+} // namespace Properties
+#endif

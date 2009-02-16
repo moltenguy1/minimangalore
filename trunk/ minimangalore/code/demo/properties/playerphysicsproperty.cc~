@@ -1,0 +1,83 @@
+//------------------------------------------------------------------------------
+//  properties/playerphysicsproperty.cc
+//  (C) 2007 Kim Hyoun Woo
+//------------------------------------------------------------------------------
+
+namespace Properties
+{
+ImplementRtti(Properties::PlayerPhysicsProperty, Properties::AbstractPhysicsProperty);
+ImplementFactory(Properties::PlayerPhysicsProperty);
+
+using namespace Game;
+using namespace Message;
+using namespace Managers;
+
+//------------------------------------------------------------------------------
+/**
+*/
+PlayerPhysicsProperty::PlayerPhysicsProperty()
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+PlayerPhysicsProperty::~PlayerPhysicsProperty()
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
+PlayerPhysicsProperty::SetupDefaultAttributes()
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+bool
+ActorPhysicsProperty::Accepts(Message::Msg* msg)
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+void
+ActorPhysicsProperty::HandleMessage(Message::Msg* msg)
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+    The OnMoveBefore() method handles all pending messages, and other
+    per-frame-stuff that must happen before the physics subsystem is
+    triggered.
+*/
+void
+ActorPhysicsProperty::OnMoveBefore()
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+    The OnMoveAfter() method transfers the current physics entity transform to
+    the game entity.
+*/
+void
+ActorPhysicsProperty::OnMoveAfter()
+{
+}
+
+//------------------------------------------------------------------------------
+/**
+    Render a debug visualization of the current 3d navigation path.
+*/
+void
+ActorPhysicsProperty::OnRenderDebug()
+{
+}
+
+}

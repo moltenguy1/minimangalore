@@ -1,0 +1,64 @@
+#ifndef MSG_PLAYERACTION_H
+#define MSG_PLAYERACTION_H
+//------------------------------------------------------------------------------
+/**
+    @class Message::PlayerAction
+
+    Various Player Actions.
+
+    (C) 2007 Kim Hyoun Woo
+*/
+#include "message/msg.h"
+
+//------------------------------------------------------------------------------
+namespace Message
+{
+class PlayerAction : public Msg
+{
+    DeclareRtti;
+    DeclareFactory(PlayerAction);
+    DeclareMsgId;
+
+public:
+    enum Type
+    {
+        CrouchRollLeft,
+        CrouchRollRight,
+    };
+
+public:
+    PlyerAction();
+
+    void SetActionType(const PlayerAction::Type& t);
+    ///
+    const PlayerAction::Type GetActionType() const;
+
+protected:
+    Type type;
+
+};
+
+RegisterFactory(PlayerAction);
+
+//------------------------------------------------------------------------------
+/**
+*/
+inline
+void 
+SetActionType(const PlayerAction::Type& t)
+{
+    this->type = t;
+}
+
+//------------------------------------------------------------------------------
+/**
+*/
+inline
+const PlayerAction::Type 
+GetActionType() const
+{
+    return this->type;
+}
+
+}
+#endif
