@@ -4,6 +4,8 @@
 /**
    해당 애니메이션 클립의 마지막 키프레임은 nAnimation::Group 참조.
 
+
+
    nAnimation::Group::TimeToIndex()
 
    시작 키 프레임 : 0
@@ -11,6 +13,8 @@
 
    해당 에니메이션이 clamp 타입인 경우, 끝나는 시간에 대한 키프레임이 
    마지막 키 프레임을 초과하면 마지막 키로 설정된다.
+
+   (C)2009 김현우
 */
 matrix44 
 nCharacter2::PredictJointTM(const nString& clipName, const nString& jointName, 
