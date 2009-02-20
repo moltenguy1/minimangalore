@@ -25,8 +25,8 @@
 
 #include "util/segmentedgfxutil.h"
 
-#include "level/stage.h"
-#include "level/view.h"
+// #include "level/stage.h"
+// #include "level/view.h"
 
 //-----------------------------------------------------------------------------
 /**
@@ -87,6 +87,7 @@ DemoGameState::OnStateEnter(const nString& prevState)
 
     // create an player entity
     this->CreatePlayer();
+	this->CreateBox();
 
 	Ptr<Input::Server> inputServer = Input::Server::Instance();
 	inputServer->AddMapping("moveForward", "keyb0:w");
@@ -104,8 +105,8 @@ DemoGameState::OnStateLeave(const nString& nextState)
 {
     //TODO: put state leave code 
 
-	Graphics::Stage* stage = Graphics::Stage::Instance();
-	stage = 0;
+// 	Graphics::Stage* stage = Graphics::Stage::Instance();
+// 	stage = 0;
 	
  
     GameStateHandler::OnStateLeave(nextState);
@@ -207,14 +208,13 @@ bool DemoGameState::CreateDefaultLight()
    light->SetVector4(Attr::LightAmbient, vector4(0.2f, 0.2f, 0.1f, 0.0f));
    light->SetBool(Attr::LightCastShadows, true);
    Managers::EntityManager::Instance()->AttachEntity(light);
-
-
-	nCamera2& camera =  nGfxServer2::Instance()->GetCamera();
-
-	float l,r,t,b,n,f;
-	camera.GetViewVolume(l, r, t, b, n, f);
-
-    return true;
+   
+   nCamera2& camera =  nGfxServer2::Instance()->GetCamera();
+   
+   float l,r,t,b,n,f;
+   camera.GetViewVolume(l, r, t, b, n, f);
+   
+   return true;
 }
 
 //-----------------------------------------------------------------------------
@@ -237,7 +237,7 @@ bool DemoGameState::CreateCamera()
     matrix44 tm;
     vector3 pos;
 
-    pos = Graphics::Stage::Instance()->GetInitPos();
+    //pos = Graphics::Stage::Instance()->GetInitPos();
     tm.set_translation(pos);
 
 	camera->SetMatrix44(Attr::Transform, tm);
@@ -266,24 +266,29 @@ bool DemoGameState::CreatePlayer()
     this->player->AttachProperty(gp);
 	
     //this->player->SetString(Attr::Graphics, "player/player03");
-	//this->player->SetString(Attr::Graphics, "player/vicecity_player_custom02");
+	//this->player->SetString(Attr::Graphics, "player/player");
+	//this->player->SetString(Attr::Graphics, "player/myplayer");
+ 	//this->player->SetString(Attr::Graphics, "player/vicecity_player_custom02");
+	
+	//this->player->SetString(Attr::Graphics, "static/box01");
 	//this->player->SetString(Attr::AnimSet, "Player");
 
-	this->player->SetString(Attr::Graphics, "player/mc01_merge04_rotated");
-	this->player->SetString(Attr::AnimSet, "cyborg");
+	//this->player->SetString(Attr::Graphics, "player/mc01_merge04");
+  	this->player->SetString(Attr::Graphics, "player/mc01_merge04_rotated");
+  	this->player->SetString(Attr::AnimSet, "Player");
 
-    Ptr<Game::Property> ip = factoryManager->CreateProperty("PlayerInputProperty");
-    this->player->AttachProperty(ip);
+     Ptr<Game::Property> ip = factoryManager->CreateProperty("PlayerInputProperty");
+     this->player->AttachProperty(ip);
+ 
+ 	Ptr<Game::Property> ap = factoryManager->CreateProperty("PlayerAnimationProperty");
+ 	this->player->AttachProperty(ap);
 
-	Ptr<Game::Property> ap = factoryManager->CreateProperty("PlayerAnimationProperty");
-	this->player->AttachProperty(ap);
-
-    Ptr<Game::Property> cp = factoryManager->CreateProperty("ChaseCameraProperty");
-    this->player->AttachProperty(cp);
-
-	// Physics에서 simulation후 변경된 변환을 보내면 관련된 GraphicsProperty등에서는 해당 
-	// 메시지를 받아서 업데이트 시킨다.
-	Ptr<Game::Property> tp = factoryManager->CreateProperty("TransformableProperty");
+     Ptr<Game::Property> cp = factoryManager->CreateProperty("ChaseCameraProperty");
+     this->player->AttachProperty(cp);
+ 
+ 	// Physics에서 simulation후 변경된 변환을 보내면 관련된 GraphicsProperty등에서는 해당 
+ 	// 메시지를 받아서 업데이트 시킨다.
+ 	Ptr<Game::Property> tp = factoryManager->CreateProperty("TransformableProperty");
 
     // begin hack
     matrix44 tm;
@@ -291,27 +296,48 @@ bool DemoGameState::CreatePlayer()
 
     //pos = Graphics::Stage::Instance()->GetInitPos();
     //tm.set_translation(pos);
-    // end hack
+    //end hack
 
-	this->player->SetMatrix44(Attr::Transform, tm);
-	this->player->AttachProperty(tp);
+	//tm.set_translation(vector3(50.0f, 0.0f, 0.0f));
 
-	this->player->SetFloat(Attr::CameraDistance, 3.0f);
-	this->player->SetFloat(Attr::CameraDefaultTheta, n_deg2rad(-5.0f));
+ 	this->player->SetMatrix44(Attr::Transform, tm);
+ 	this->player->AttachProperty(tp);
+ 
+ 	this->player->SetFloat(Attr::CameraDistance, 3.0f);
+ 	this->player->SetFloat(Attr::CameraDefaultTheta, n_deg2rad(-5.0f));
 
 	Managers::FocusManager::Instance()->SetFocusEntity(this->player);
-
     Managers::EntityManager::Instance()->AttachEntity(this->player);
-
-
-
 
     return true;
 }
 
-//-----------------------------------------------------------------------------
-/**
-*/
+//////////////////////////////////////////////////////////////////////////
+// bool CreateBox()
+//////////////////////////////////////////////////////////////////////////
+bool DemoGameState::CreateBox()
+{
+	Ptr<Game::Entity> entity = Managers::FactoryManager::Instance()->CreateEntityByClassName("Entity");
+	Ptr<Properties::PhysicsProperty> physicsProperty = (Properties::PhysicsProperty*) Managers::FactoryManager::Instance()->CreateProperty("PhysicsProperty");
+	Ptr<Game::Property> graphicProperty = Managers::FactoryManager::Instance()->CreateProperty("GraphicsProperty");
+
+	entity->AttachProperty(physicsProperty);
+	entity->SetString(Attr::Physics, "physics1");
+
+	entity->AttachProperty(graphicProperty);
+	entity->SetString(Attr::Graphics, "box/physics1");
+
+// 	matrix44 entityTransform;
+// 	entity->SetMatrix44(Attr::Transform, entityTransform);
+
+	Managers::EntityManager::Instance()->AttachEntity(entity);
+
+	return true;
+}
+
+//////////////////////////////////////////////////////////////////////////
+// bool CreateEnvironment()
+//////////////////////////////////////////////////////////////////////////
 bool DemoGameState::CreateEnvironment()
 {
     Managers::FactoryManager *factoryManager = Managers::FactoryManager::Instance();
