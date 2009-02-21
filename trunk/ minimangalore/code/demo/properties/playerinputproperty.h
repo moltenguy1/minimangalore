@@ -32,11 +32,12 @@ protected:
     virtual void HandleInput();
 	///
     void SendMove(const vector3& dir);
+	void SendTurn(const float dir);
 
 protected:
 	Message::PlayerStatus playerMsg;
 
-	nTime moveGotoTime;
+	nTime moveGotoTime;	
 };
 
 RegisterFactory(PlayerInputProperty);
