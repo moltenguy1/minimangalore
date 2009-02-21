@@ -76,53 +76,6 @@ beginmodule demoluaserver
     }
 endmodule
 #-----------------------------------------------------------------------------
-beginmodule demolevel
-    setdir level
-    setfiles {
-        base
-        effectwrapper
-        file
-        libreriamtrs
-        mapdoom
-        parserlex
-        parsermapdoom
-        parsermtr
-        parserprocdoom
-        procdoom
-        sistemadeficheros
-        utilidadesalgebra
-        frustum
-        d3dxhelper
-        tokenparser
-        stlutils
-        stdafx
-        stage
-        view
-    }
-    setheaders {
-        base
-        effectwrapper
-        file
-        libreriamtrs
-        mapdoom
-        parserlex
-        parsermapdoom
-        parsermtr
-        parserprocdoom
-        procdoom
-        sistemadeficheros
-        utilidadesalgebra
-        frustum
-        d3dxhelper
-        tokenparser
-        stlutils  
-        stdafx
-        stage
-        view
-    }
-    setlibs_win32 { shlwapi.lib }
-endmodule
-#-----------------------------------------------------------------------------
 begintarget chasecamdemoapp
     annotate "Insert a brief annotation of the target"
     settype exe
@@ -133,8 +86,7 @@ begintarget chasecamdemoapp
         demoproperties
         demophysics
         demomsg
-        demoluaserver 
-        demolevel
+        demoluaserver       
     }
     settargetdeps {
         nkernel
