@@ -38,15 +38,14 @@ public:
 protected:
 	bool CreateDefaultLight();
 	bool CreatePlayer();
+	bool CreateBox();
 	bool CreateCamera();
 	bool CreateEnvironment();
     void CreateLevel();
 
 protected:
-
-    Ptr<Game::Entity> player;
+	Ptr<Game::Entity> player;
     Ptr<Physics::Entity> playerPhysics;
-
 };
 
 //----------------------------------------------------------------------------
