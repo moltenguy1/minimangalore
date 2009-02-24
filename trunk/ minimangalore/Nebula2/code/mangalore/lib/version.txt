@@ -1,0 +1,6 @@
+cegui 0.5.0b release (built from source package) http://sourceforge.net/project/showfiles.php?group_id=93749&package_id=128390&release_id=463560
+freetype 2.2.1 (built from source package) http://sourceforge.net/project/showfiles.php?group_id=3157&package_id=3121&release_id=416463
+pcre 6.7 (built from source package) http://www.psyon.org/projects/pcre-win32/index.php
+ode 0.8 release (built from source package) http://sourceforge.net/project/showfiles.php?group_id=24884&package_id=18585&release_id=480493
+
+If you want to build these libraries on your own check the documentation on http://www.nebuladevice.org
