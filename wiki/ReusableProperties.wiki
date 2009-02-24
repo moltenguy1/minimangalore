@@ -20,3 +20,4 @@ Menu Item Entity
  ** 시간 타이머 - 트랩, 롤러블레이드, 퍼즐 도미노, 장님 안내 등의 프로젝트에서 재사용 가능
  * '''Abstract_Trigger''' Property
  ** 
+ * 자동차와 같은 오브젝트의 경우 PhysicsProperty를 상속한 CarPhysicsProperty의 정의가 필요하다.
