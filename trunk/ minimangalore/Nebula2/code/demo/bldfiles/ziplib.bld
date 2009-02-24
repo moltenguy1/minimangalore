@@ -1,0 +1,48 @@
+#-----------------------------------------------------------------------------
+#  ziplib.bld
+#  ============
+#  ziplib
+#
+#  (C)2007 Kim Hyoun Woo  
+#-----------------------------------------------------------------------------
+beginmodule ziplib
+    setdir ziplib
+    setfiles { 
+        czipfile
+        wildcard
+    }
+    setheaders { 
+		czipfile
+		Deflate
+		Infblock
+		Infcodes
+		Inffast
+		Inffixed
+		Inftrees
+		Infutil
+		Ioapi
+		Iowin32
+		Trees
+		Unzip     
+		wildcard
+		Zconf
+		Zip
+		Zlib
+		Zutil
+    }
+    setlibs_win32 { zipfile.lib zlib.lib }
+endmodule
+#-----------------------------------------------------------------------------
+begintarget ziplib
+    annotate "Insert a brief annotation of the target"
+    settype lib
+    setmodules {
+        ziplib
+    }
+    settargetdeps {
+        
+    }
+endtarget 
+#-----------------------------------------------------------------------------
+# EOF
+#-----------------------------------------------------------------------------
