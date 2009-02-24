@@ -1,0 +1,20 @@
+#summary Reusable Properties among each of the projects
+#labels Phase-Implementation,Property
+
+= 개요 =
+
+각 프로젝트들간에 재사용가능한 프로퍼티(Property)들에 대한 내용.
+
+= Menu State =
+
+Menu State는 프로퍼티뿐만 아니라 메뉴 상태와 메뉴 아이템 모두 프로젝트간에 공유가 가능하다.
+
+Menu Item Entity
+ * Menu 상태의 메뉴 아이템들.
+
+= Game State =
+
+ * Timer Property
+ ** 시간 타이머 - 트랩, 롤러블레이드, 퍼즐 도미노, 장님 안내 등의 프로젝트에서 재사용 가능
+ * AbstractTrigger Property
+ ** 
