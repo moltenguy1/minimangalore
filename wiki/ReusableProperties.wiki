@@ -16,7 +16,7 @@ Menu Item Entity
 
 = Game State =
 
- * Timer Property
+ * '''Timer''' Property
  ** 시간 타이머 - 트랩, 롤러블레이드, 퍼즐 도미노, 장님 안내 등의 프로젝트에서 재사용 가능
- * AbstractTrigger Property
+ * '''Abstract_Trigger''' Property
  ** 
