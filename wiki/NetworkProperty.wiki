@@ -1,0 +1,18 @@
+#Network Property
+
+= 네트워크 모듈 만들기 =
+
+RakNet을 사용한 네트워크 모듈 만들기.
+
+RakNet(http://www.jenkinssoftware.com/)은 p2p용 네트워크 라이브러리.
+
+Nebula3에서는 RakNet을 이용해서 Network을 구현하는데 N2에서도 유사한 방법으로 네트워크 멀티 플레이를 구현할 수 있다. (N2와 N3의 게임 프레임워크 - Mangalore는 매우 유사)
+
+N3는 google code나 The Brain Dump 블로그 사이트(http://flohofwoe.blogspot.com/2008/09/nebula3-september-sdk.html)에서 구할 수 있다.
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
