@@ -17,6 +17,9 @@ N3는 google code나 The Brain Dump 블로그 사이트(http://flohofwoe.blogspo
  * code/addons/network/
  * code/application/networkfeature/
 
+DefaultClientHandler::ProcessIncomingStreams 함수와 DefaultClientHandler::HandleSystemMessage 함수가 핵심! Managlore의 메시지 시스템을 이해하면 아래 네트워크 메시지 처리도 어렵지 않게 처리할 수 있다. 중요한 것은 기존의 메시지에 메시지 아이디를 추가해서 네트워크 메시지로 이용한다는 것. switch 문이나 if-else 문으로 패킷을 처리하지 않는다.
+
+{{{
 void 
 DefaultClientHandler::ProcessIncomingStreams()
 {
@@ -47,7 +50,9 @@ DefaultClientHandler::ProcessIncomingStreams()
         }
     }
 }
+}}}
 
+{{{
 bool 
 DefaultClientHandler::HandleSystemMessage(const Ptr<Messaging::Message>& msg)
 {
@@ -77,3 +82,4 @@ DefaultClientHandler::HandleSystemMessage(const Ptr<Messaging::Message>& msg)
     }
     return false;
 }
+}}}
