@@ -1,3 +1,4 @@
+#labels network,property
 #Network Property
 
 = 네트워크 모듈 만들기 =
@@ -10,9 +11,69 @@ Nebula3에서는 RakNet을 이용해서 Network을 구현하는데 N2에서도 �
 
 N3는 google code나 The Brain Dump 블로그 사이트(http://flohofwoe.blogspot.com/2008/09/nebula3-september-sdk.html)에서 구할 수 있다.
 
-= Details =
+= 구현 =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+모듈위치
+ * code/addons/network/
+ * code/application/networkfeature/
+
+void 
+DefaultClientHandler::ProcessIncomingStreams()
+{
+    n_assert(this->client.isvalid());
+    n_assert(this->client->GetNumberRecvStreams() > 0);
+    IndexT streamIdx;
+    for (streamIdx = 0; streamIdx < this->client->GetNumberRecvStreams(); streamIdx++)
+    {
+        const Ptr<NetStream>& stream = this->client->GetStreamAtIndex(streamIdx);
+        Ptr<Messaging::Message> msg = NetStreamFactory::CreateMessageFromStream(stream);
+        this->incomingMsgs.Append(msg);
+    }
+
+    /// send new created msgs to ports which want this typ of message
+    const Array<Ptr<Messaging::Message> >& msgs = this->incomingMsgs;
+    IndexT msgIdx;
+    for (msgIdx = 0; msgIdx < msgs.Size(); msgIdx++)
+    {
+        const Messaging::Id& mId = msgs[msgIdx]->GetId();
+        if (this->portMessageIdMapping.Contains(&mId))
+        {
+            // send message to all registered port for this type of msg
+            IndexT portIdx;
+            for (portIdx = 0; portIdx < this->portMessageIdMapping[&mId].Size(); portIdx++)
+            {
+                this->portMessageIdMapping[&mId][portIdx]->Send(msgs[msgIdx]);
+            }
+        }
+    }
+}
+
+bool 
+DefaultClientHandler::HandleSystemMessage(const Ptr<Messaging::Message>& msg)
+{
+    // check for system msgs
+    if (msg->CheckId(Connect::Id))
+    {
+        Ptr<Connect> connectMsg = msg.cast<Connect>();
+        this->ConnectToServer(connectMsg->GetServerAddress());
+        msg->SetHandled(true);
+
+        return true;
+    }
+    else if (msg->CheckId(Disconnect::Id))
+    {
+        this->DisconnectFromServer();
+        msg->SetHandled(true);
+
+        return true;
+    }
+    else if (msg->CheckId(IsClientConnected::Id))
+    {
+        Ptr<IsClientConnected> isConnected = msg.cast<IsClientConnected>();
+        isConnected->SetIsConnected(this->client->IsConnected());
+        isConnected->SetHandled(true);
+
+        return true;
+    }
+    return false;
+}
