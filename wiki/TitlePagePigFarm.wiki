@@ -1,4 +1,5 @@
 #PigFarm
+
 = 게임소개 =
 
 돼지 경영시뮬레이션입니다.
@@ -6,6 +7,6 @@
 = Details =
 
 Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
+  * 돼지가 언덕에 오르는데 뒷다리가 뜹니다;;
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
