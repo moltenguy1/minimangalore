@@ -5,9 +5,9 @@
 줄로 장애물을 피해서 탈출
 
 
-= Details =
+= 구현상의 문제점 =
 
 Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
+  * 줄을 어떻게 구현해야할지 걱정입니다
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
