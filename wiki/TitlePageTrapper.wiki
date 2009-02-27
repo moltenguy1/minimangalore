@@ -1,9 +1,8 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
+= 게임소개 =
 
-Add your content here.
-
+상대를 트랩으로 방해하면서 점수를 많이 먹는 게임
 
 = Details =
 
