@@ -1,0 +1,20 @@
+# ---
+# $parser:ntclserver$ $class:ntransformnode$
+# ---
+.setlocalbox 4.179611 0.250000 -0.497177 51.946835 0.250000 54.468292
+new nshapenode Box01
+	sel Box01
+	.setlocalbox 0.000000 0.250000 0.000000 51.946835 0.250000 54.468292
+	.setposition 4.179611 0.000000 -0.497175
+	.settexture "DiffMap0" "textures:system/white.dds"
+	.setvector "MatAmbient" 0.900000 0.900000 0.900000 1.000000
+	.setvector "MatDiffuse" 1.000000 1.000000 1.000000 1.000000
+	.setvector "MatSpecular" 0.500000 0.500000 0.500000 1.000000
+	.setfloat "MatSpecularPower" 32.000000
+	.setshader "static"
+	.setmesh "meshes:ground01.n3d2"
+	.setgroupindex 0
+	.setneedsvertexshader false
+sel ..
+# ---
+# Eof
