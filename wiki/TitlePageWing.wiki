@@ -1,12 +1,10 @@
 #윙 프로젝트
 
 = 소개 =
- 장애물을 피해 목적지에 최단시간에 도착하는 게임.
+ 개발자
+  최홍련
+ 
+게임설명 
+  장애물을 피해 목적지에 최단시간에 도착하는 게임.
 
-= Details =
- 프로젝트를 하면서 막히거나 문제점.
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= 구현시 문제점=
