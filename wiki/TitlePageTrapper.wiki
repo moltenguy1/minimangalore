@@ -2,9 +2,11 @@
 
 상대를 트랩으로 방해하면서 점수를 많이 먹는 게임
 
+개발자 - 김민규
+
 = 구현상의 문제점 =
 
 다음의 문제점들이 있습니다.
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * 
+  * 
+  * 
