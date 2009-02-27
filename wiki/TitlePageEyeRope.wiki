@@ -11,12 +11,13 @@
 다음의 문제점들이 있습니다:
   * 줄 구현 
    * ODE 물리 엔진의 로프를 참조합니다.
-   *{{{ 
+   *
+{{{ 
 The cable is divided into n segments. I use capped cylinders as geoms.
-To connect them, I tried different joints (ball&socket, universal & hinge2).
+To connect them, I tried different joints *(ball&socket, universal & hinge2)*.
 Because the cable needs to have a material attribute which describes the maximum angle it can be bend, I use hinge2 now. With the parameters dParamLoStop and dParamHiStop I can control how far the cable can be bend. 
 Using an AMotor dry friction in the joints is modelled (as described in the
 documentation). To slow down the cable, while it's hanging down and swinging, the velocity of the bodies is taken each frame, a negative friction of it is added to the body (again, as described in the documentation :)
-    }}}
+}}}
   * 
   * 
