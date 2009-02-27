@@ -3,12 +3,10 @@
 = Introduction =
 장애물을 피해서 보물을 얻는다....
 
-
-Add your content here.
-
-
-
 = Details =
+
+어떤 구현 형식을 어떻게 나아가야할지...
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
