@@ -5,9 +5,8 @@
 돼지를 길러서 팔아넘기는 게임입니다.
 늑대가 되어서 뒹굴고 있는 돼지들을 멕이고 운동시키는 게임입니다.
 
-= Details =
+= 구현상의 문제점 =
 
-Add your content here.  Format your content with:
-  * 돼지가 언덕에 오르는데 뒷다리가 뜹니다;;
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+다음의 문제점들이 있습니다:
+  * 돼지가 언덕에 오르는데 뒷다리가 뜹니다;
+   * A: Locomotion의 구현이 필요해 보이는데, 우선 중요한 문제가 아니므로 패스합니다...
