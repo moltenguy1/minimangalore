@@ -1,14 +1,17 @@
 퍼즐 도미노 프로젝트
 
-
 = 소개 =
 
-....
+쓰러지는 도미노를 피하면서 도미노가 이어지도록 끊어진 곳을 메꾸어 나가며
+
+목표지점까지 도달하는 게임
+
+= 구현상의 문제점 =
 
 
-= Details =
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Automatic links to other wiki page
