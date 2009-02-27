@@ -8,6 +8,6 @@
 = 구현상의 문제점 =
 
 다음의 문제점들이 있습니다:
-  * 줄을 어떻게 구현해야할지 걱정입니다
+  * 줄 구현 
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
