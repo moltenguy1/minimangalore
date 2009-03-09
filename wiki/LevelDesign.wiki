@@ -4,10 +4,15 @@
 
 =2. 충돌볼륨 ( 지형,건물,기타 )=
 
+Physic Volume의 Data를 추출하는 physxexport.ms에서 physxxmlutil.ms 를 include하여 
+XML데이터를 만들어 내는데 Composites의 's'가 붙는것 numShape에 's'가 안붙는것  </>가 붙는것
+등의 에러는 physxxmlutil.ms를 수정한다.
+
+
 =3. 레벨에 등장하는 오브젝트의 배치=
 
 
-*merge와 xref의 차이점*
+*참고: merge와 xref의 차이점*
 
 merge와 xref는 비교할 수 없는 기능적 차이가 있습니다.
 merge : A Scene안에 B Scene 을 합치는 기능, 또는 그 반대로 합치는 기능입니다.  B Scene 안에 있는 특정 오브젝트만 합칠수 가 있습니다.
