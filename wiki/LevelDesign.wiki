@@ -3,6 +3,7 @@
 How to desgine level with 3dmax and mangalore ? 
 
 =1. 지형의 표현= 
+3dmax에서 지형 메쉬를 만들고 텍스쳐 매핑을 하면 되는것인가. 
 
 =2. 충돌볼륨 ( 지형,건물,기타 )=
 
@@ -12,6 +13,7 @@ XML데이터를 만들어 내는데 Composites의 's'가 붙는것 numShape에 '
 
 
 =3. 레벨에 등장하는 오브젝트의 배치=
+3dmax에서 오브젝트 들을 배치하고 레벨에 등장하는 오브젝트의 DB를 작성해야한다.
 
 
 *참고: merge와 xref의 차이점*
