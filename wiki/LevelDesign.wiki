@@ -9,7 +9,7 @@
 3. 레벨에 등장하는 오브젝트의 배치
 
 
-*merge와 xref의 차이점입니다
+*merge와 xref의 차이점
 
 merge와 xref는 비교할 수 없는 기능적 차이가 있습니다.
 merge : A Scene안에 B Scene 을 합치는 기능, 또는 그 반대로 합치는 기능입니다.  B Scene 안에 있는 특정 오브젝트만 합칠수 가 있습니다.
@@ -25,4 +25,5 @@ xref는 팀작업시에 효과적인 방법입니다. 또한 xref는, 프락시�
  
 결론은  
 1. merge는 씬+씬(object)
+
 2. xref는 씬+씬(object) 참조파일.(팀작업시)
