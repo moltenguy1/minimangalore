@@ -1,5 +1,7 @@
 #summary 3dmax9 와 mangalore를 이용하여 레벨 디자인 하기
- 
+
+How to desgine level with 3dmax and mangalore ? 
+
 =1. 지형의 표현= 
 
 =2. 충돌볼륨 ( 지형,건물,기타 )=
