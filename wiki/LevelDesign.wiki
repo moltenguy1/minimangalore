@@ -1,0 +1,12 @@
+#summary 3dmax9 와 mangalore를 이용하여 레벨 디자인 하기
+= 소개 =
+
+Add your content here.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
