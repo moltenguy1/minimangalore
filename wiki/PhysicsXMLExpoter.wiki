@@ -1,10 +1,14 @@
-#Physics XML Expoter
+#summary Physics XML Expoter
 
 = Physics XML Expoter =
 Physic Shape를 XML 로 추출하기
 
 = 설치 방법 =
-1. 
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+1. 우선 자신의 Nebula2 설치 폴더로 들어갑니다.
+  * \trunk\nebula2\code\contrib\nmax\maxscripts\mangalore\scripts\mangalore
+  * build.py 파일을 실행합니다.
+
+2. 아래 경로에 폴더들 복사
+  * \trunk\nebula2\code\contrib\nmax\maxscripts\mangalore
+  * plugcfg , scripts 폴더를  3DMAX가 설치된 폴더에 복사
+  * 
