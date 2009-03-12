@@ -34,7 +34,6 @@ Physic Shape를 XML 로 추출하기
 4. 3D MAX 오른쪽 탭 메뉴에서 "Utilities"를 클릭 "Mangalore Physics Expoter"에 "+"를 클릭후
 메뉴를 늘린후 Expoter를 클릭하면 XML을 출력합니다.
 
-
 - 추가 (2009-03-12) -
 
 1. 위의 2번에서 "ODE Shape (Mangalore)"로 Box를 그릴 때, 오브젝트의 축이 오브젝트의 가운데에 오도록 해야 함. (Mangalore에서 충돌 영역을 만들 때 축을 중심으로 만들어지는 듯)
@@ -46,6 +45,8 @@ Physic Shape를 XML 로 추출하기
   * ExportODECapsule 함수에서 xmlElementBegin "CapsuleBody" 를 xmlElementBegin "CapsuleShape" 로 수정
   * 이미 추출한 xml 파일의 경우 "SphereBody" 와 "CapsuleBody" 에서 "Body"만 "Shape"로 수정해도 됨)
 
+3. XML로 추출한 Physic Shape를 사용하면 오브젝트보다 심하게 크게 나오는 현상은 3DMAX 오른쪽 탭메뉴에서 "Utilities"란 에서 "More..." 버튼을 클릭 리스트에서 "Nebula2"를 선택하고 나오는 메뉴에서 "Scale Geometry By"에 0.01로 되있는 수치를 1로 수정하던가 "physxexport.ms"에 파일 내용에 사이즈 추출부분 값을 1/100을 한후 추출하던가 해야 합니다.
+
 --------------------------------------------------------------------------------------
 <---------- 틀리거나 빠진부분은 계속 수정 --------------->
 
@@ -55,4 +56,3 @@ Physic Shape를 XML 로 추출하기
 
 
     
-
