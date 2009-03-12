@@ -16,7 +16,9 @@ Physic Shape를 XML 로 추출하기
   * xmlpath = "D:\materials.xml" 를 자신의 nebula2\data\tables\materials.xml 로 수정합니다.
   * 자신의 프로젝트에 materials.xml을 사용시 자신의 프로젝트 폴더 안에 \data\tables\materials.xml로 합니다.
 
+
 = 사용 방법 =
+
 1. 3D MAX에서 Physic Shape를 사용할 오브젝트를 클릭후 오른쪽 탭 메뉴에 "modify"를 클릭하고
 "Modifier List" 리스트박스에서 "ODE Body (Mangalore)" 를 선택합니다.
 선택후 나오는 메뉴에서 "Rigid Body"란에서 Static 체크후 Body Shape에서 알맞게 선택합니다.
@@ -33,6 +35,16 @@ Physic Shape를 XML 로 추출하기
 메뉴를 늘린후 Expoter를 클릭하면 XML을 출력합니다.
 
 
+= 추가 (2009-03-12) =
+
+1. 위의 2번에서 "ODE Shape (Mangalore)"로 Box를 그릴 때, 오브젝트의 축이 오브젝트의 가운데에 오도록 해야 함. (Mangalore에서 충돌 영역을 만들 때 축을 중심으로 만들어지는 듯)
+충돌 영역으로 사용할 도형을 선택 후 오른쪽 탭 메뉴의 "Hierarchy"에서 "Move/Rotate/Scale" 항목의 "Affect Pivot Only"를 클릭한 다음 "Alignment" 의 "Center to Object"를 클릭하면 됨. (수동으로 이동하는 것도 가능)
+
+2. "ODE Shape (Mangalore)"에서 Box 이외의 다른 도형, 즉 "Sphere"나 "Capsule"을 만들어서 Export하게 되면 성공적으로 추출이 되지만, 프로젝트에서 추출한 Physics용 xml 파일을 불러오게 되면 에러 발생. 해결 방법은 위에서 설치한 MaxScript 중 "physxexport.ms" 파일의 내용에서 다음 부분을 수정.
+
+(1) ExportODESphere 함수에서 xmlElementBegin "SphereBody" 를 xmlElementBegin "SphereShape" 로 수정
+(2) ExportODECapsule 함수에서 xmlElementBegin "CapsuleBody" 를 xmlElementBegin "CapsuleShape" 로 수정
+
 --------------------------------------------------------------------------------------
 <---------- 틀리거나 빠진부분은 계속 수정 --------------->
 
@@ -42,8 +54,6 @@ Physic Shape를 XML 로 추출하기
 
 
     
-
-
 
 
 
