@@ -1,6 +1,6 @@
-#summary XML을 이용한 Magalore 사운드 재생
+#summary XML을 이용한 Mangalore 사운드 재생
 
-= Magalore 사운드 재생 =
+= Mangalore 사운드 재생 =
 
 ==1. 지원하는 사운드 포맷은 *WAV* 와 *OGG*. (확장자 *.wav* 와 *.ogg*)==
 
