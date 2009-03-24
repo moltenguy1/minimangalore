@@ -8,6 +8,7 @@ Max파일에 저장되어 애니메이션되고 있는 캐릭터를 게임에 �
 == 준비사항 ==
   - 캐릭터 max파일 
   Biped 와 Skining 으로 애니메이션되고있는 파일 (COM은 부모가 없어야함)
+
   - anims.xml파일 
   게임에서의 동작 이름과 맥스상에서의 동작이름을 연결하는 파일 
  ( data\tables\anims.xml) 에 위치해야하며 mangalpath함수로 참조위치를 확인
