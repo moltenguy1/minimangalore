@@ -15,6 +15,7 @@ Max파일에 저장되어 애니메이션되고 있는 캐릭터를 게임에 �
  
   코드(프로그래머)에서의 State 이름과 맥스(아티스트)에서의 TrackNote에 적힌 동작이름을 연결하는 파일 ( data\tables\anims.xml) 에 위치해야하며 mangalpath함수로 참조위치를 확인
 
+ xml파일의 필드를 추가한다. Attr::AnimSet 이름으로 사용할 이름을 추가한다  밑의 예 있음
 
 == 동작 구분하기 ==
  - SchemeticView에서 Com을 선택후 CurveEditor를 열고 DopheSheet로 변환후 TrackNote를 추가한후 Key를 추가선택후 그래프 상에서 왼쪽클릭하여 추가후 삽입된 메모지그림의 오른쪽 클릭후 Note정보를 적는다.
@@ -31,7 +32,7 @@ fadetime : 0.0          (모르겠음)
 
 
 == 익스포팅 ==
- - 메뉴 Nebula2 -> export
+ - 메뉴 Nebula2 -> export , 테스트는 뷰어의 메뉴에서 cha 선택후 동작을 선택한다.
 
 == 게임에 적용하기 ==
 
@@ -44,7 +45,27 @@ fadetime : 0.0          (모르겠음)
 	this->player->SetString(Attr::Graphics, "urbanextreame/ueplayer");
 	this->player->SetString(Attr::AnimSet, "UePlayer");	// FieldName in anim.xml 
 
+
+{{{
  
+UePlayerAnimationProperty::HandleMessage(Message::Msg* msg)
+{
+	n_assert(msg);
+	if (msg->CheckId(Message::MoveStop::Id))
+	{
+		this->RequestAnimation("Idle", "", n_rand(0.0f, 1.0f));
+	}
+	else if (msg->CheckId(Message::MoveDirection::Id) ||
+		msg->CheckId(Message::MoveSetVelocity::Id))
+	{
+		if (this->GetEntity()->HasAttr(Attr::MaxVelocity) && this->GetEntity()->GetFloat(Attr::MaxVelocity) > 1.2f)
+		{
+			this->RequestAnimation("Run", "", n_rand(0.0f, 1.0f));
+		}
+		else this->RequestAnimation("Walk", "", n_rand(0.0f, 1.0f));
+	}
+}
+}}}
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
