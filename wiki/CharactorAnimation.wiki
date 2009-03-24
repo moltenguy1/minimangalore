@@ -20,8 +20,10 @@ Max파일에 저장되어 애니메이션되고 있는 캐릭터를 게임에 �
  - SchemeticView에서 Com을 선택후 CurveEditor를 열고 DopheSheet로 변환후 TrackNote를 추가한후 Key를 추가선택후 그래프 상에서 왼쪽클릭하여 추가후 삽입된 메모지그림의 오른쪽 클릭후 Note정보를 적는다.
 
 상태이름: clamp         (<- ": clamp"는 1회 재생을 의미하며, 생략하면 반복됨) 
+
      
 duration : 30          (동작의 프레임수)
+
 
 fadetime : 0.0          (모르겠음)
 
