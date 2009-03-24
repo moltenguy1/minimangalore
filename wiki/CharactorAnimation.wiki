@@ -1,0 +1,15 @@
+# 3D Max에서 애니메이션되고있는 캐릭터를 게임에 적용하기
+
+= Introduction =
+Max파일에 저장되어 애니메이션되고 있는 캐릭터를 게임에 어떻게 적용할것인가.
+
+
+= Details =
+== 준비사항 ==
+
+ 
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
