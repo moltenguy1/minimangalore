@@ -36,6 +36,16 @@ fadetime : 0.0          (모르겠음)
 
 == 게임에 적용하기 ==
 
+프로퍼티의 사용
+{{{
+bool DemoGameState::CreatePlayer()
+{
+	Managers::FactoryManager *factoryManager = Managers::FactoryManager::Instance();
+    this->player = factoryManager->CreateEntityByClassName("Entity");
+
+
+	Ptr<Game::Property> pp = factoryManager->CreateProperty("UePlayerPhysicsProperty");
+	this->player->AttachProperty(pp);
 
 	Ptr<Game::Property> ap = factoryManager->CreateProperty("UePlayerAnimationProperty");
 	this->player->AttachProperty(ap);
@@ -45,9 +55,42 @@ fadetime : 0.0          (모르겠음)
 	this->player->SetString(Attr::Graphics, "urbanextreame/ueplayer");
 	this->player->SetString(Attr::AnimSet, "UePlayer");	// FieldName in anim.xml 
 
+    Ptr<Game::Property> ip = factoryManager->CreateProperty("UePlayerInputProperty");
+    this->player->AttachProperty(ip);
 
+	Ptr<Game::Property> cp = factoryManager->CreateProperty("UePlayerCameraProperty");
+	this->player->AttachProperty(cp);
+
+ 	Ptr<Game::Property> tp = factoryManager->CreateProperty("TransformableProperty");
+
+
+    // begin hack
+    matrix44 tm;
+  
+  	this->player->SetMatrix44(Attr::Transform, tm);
+  	this->player->AttachProperty(tp);
+ 
+ 	Managers::FocusManager::Instance()->SetFocusEntity(this->player);
+    Managers::EntityManager::Instance()->AttachEntity(this->player);
+
+    return true;
+}
+}}}
+
+
+애니메이션 바꾸기
 {{{
  
+void 
+UePlayerAnimationProperty::OnActivate()
+{
+	Game::Property::OnActivate();
+
+	// by default go to idle animation
+	this->RequestAnimation("Idle","", n_rand(0.0f, 1.0f));
+}
+
+void
 UePlayerAnimationProperty::HandleMessage(Message::Msg* msg)
 {
 	n_assert(msg);
