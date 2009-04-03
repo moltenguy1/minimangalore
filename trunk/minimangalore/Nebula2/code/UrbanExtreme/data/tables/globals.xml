@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>floh</Author>
+  <LastAuthor>KOGIA</LastAuthor>
+  <Created>2004-07-24T17:17:38Z</Created>
+  <LastSaved>2009-03-26T20:43:35Z</LastSaved>
+  <Company>Graceland</Company>
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <DownloadComponents/>
+  <LocationOfComponents HRef="file:///D:\"/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>11445</WindowHeight>
+  <WindowWidth>15180</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>105</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s64">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+  </Style>
+  <Style ss:ID="s66">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#99CC00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#99CC00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s69">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#99CC00" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+   <Interior ss:Color="#99CC00" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Bottom"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s72">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <NumberFormat ss:Format="[ENG]dd/\ mmm"/>
+  </Style>
+  <Style ss:ID="s73">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+  <Style ss:ID="s74">
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+   </Borders>
+   <Font ss:FontName="Arial" x:Family="Swiss" ss:Bold="1"/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Tabelle1">
+  <Table ss:ExpandedColumnCount="4" ss:ExpandedRowCount="47" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="13.3125">
+   <Column ss:StyleID="s62" ss:Width="156.75"/>
+   <Column ss:StyleID="s63" ss:AutoFitWidth="0" ss:Width="84.75"/>
+   <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="192.75"/>
+   <Column ss:StyleID="s65" ss:AutoFitWidth="0" ss:Width="464.25"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s66">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Id</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Type</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">Value</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">Comment</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">MouseOverColor</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">3.0, 2, 1.5, 1.0</Data></Cell>
+    <Cell><Data ss:Type="String">Objekte einfaerben wenn Maus drueber ist</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">ShadowColor</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell><Data ss:Type="String">0.0, 0.0, 0.05, 0.4</Data></Cell>
+    <Cell><Data ss:Type="String">Farbe der Schattenplane (gilt nur für DX7)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DisplaySaturation</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1.22</Data></Cell>
+    <Cell><Data ss:Type="String">globale Farb-Saettigung (0 == schwarz/weiss)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DisplayBalance</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell ss:StyleID="s72"><Data ss:Type="String">1.087, 1.07, 0.85, 1.0</Data></Cell>
+    <Cell><Data ss:Type="String">globale Farb-Balance (wird nach der Berechnung der Saettigung reingerechnet)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">DisplayLuminance</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell ss:StyleID="s65"><Data ss:Type="String">0.299, 0.587, 0.114, 0.0</Data></Cell>
+    <Cell><Data ss:Type="String">zur Berechnung der Schwarzweiss-Pixel (red*0.299 + green*0.587 + blue*0.114)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HdrBrightPassThreshold</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">0.8</Data></Cell>
+    <Cell><Data ss:Type="String">Bright pass filter: Genze ab wann ein Pixel als Weiss gilt, im HDR Bloom ankommt.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">HdrBrightPassOffset</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">1.3</Data></Cell>
+    <Cell><Data ss:Type="String">Bright pass filter: Genze ab wann ein Pixel als Weiss gilt, im HDR Bloom ankommt.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="14.25">
+    <Cell><Data ss:Type="String">HdrBloomScale</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">0.6</Data></Cell>
+    <Cell><Data ss:Type="String">HDR Intensity, 0.0 = off.</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FogColor</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell><Data ss:Type="String">0.795161,0.795161,0.795161,1.000000</Data></Cell>
+    <Cell><Data ss:Type="String">Fog Color RBGA</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FogDistances</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell><Data ss:Type="String">10.0, 550.265869, 0.0, 0.0</Data></Cell>
+    <Cell><Data ss:Type="String">x=Fog Start, y=Fog End, 0.0, 0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CameraFocus</Data></Cell>
+    <Cell><Data ss:Type="String">vector4</Data></Cell>
+    <Cell><Data ss:Type="String">0.0, 28.925917, 0.0, 0.0</Data></Cell>
+    <Cell><Data ss:Type="String">x=Focus Distance, y=Focus Lenght, 0.0, 0.0</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NoiseIntensity</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">0.02</Data></Cell>
+    <Cell><Data ss:Type="String">Intensity (Visibility)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NoiseScale</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">10.0</Data></Cell>
+    <Cell><Data ss:Type="String">Scale (Size)</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">NoiseFrequency</Data></Cell>
+    <Cell><Data ss:Type="String">float</Data></Cell>
+    <Cell><Data ss:Type="String">25.0</Data></Cell>
+    <Cell><Data ss:Type="String">frequency (movement)</Data></Cell>
+   </Row>
+   <Row ss:Index="40" ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s74"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:Index="3" ss:StyleID="s73"/>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.4921259845"/>
+    <Footer x:Margin="0.4921259845"/>
+    <PageMargins x:Bottom="0.984251969" x:Left="0.78740157499999996"
+     x:Right="0.78740157499999996" x:Top="0.984251969"/>
+   </PageSetup>
+   <Unsynced/>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>300</HorizontalResolution>
+    <VerticalResolution>300</VerticalResolution>
+   </Print>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R2C2:R11C2,R17C2:R47C2,R49C2:R65536C2</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;string,int,float,bool,vector3,vector4&quot;</Value>
+  </DataValidation>
+ </Worksheet>
+ <Worksheet ss:Name="Tabelle2">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="13.3125">
+   <Row ss:AutoFitHeight="0"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.4921259845"/>
+    <Footer x:Margin="0.4921259845"/>
+    <PageMargins x:Bottom="0.984251969" x:Left="0.78740157499999996"
+     x:Right="0.78740157499999996" x:Top="0.984251969"/>
+   </PageSetup>
+   <Unsynced/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Tabelle3">
+  <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="1" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="13.3125">
+   <Row ss:AutoFitHeight="0"/>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.4921259845"/>
+    <Footer x:Margin="0.4921259845"/>
+    <PageMargins x:Bottom="0.984251969" x:Left="0.78740157499999996"
+     x:Right="0.78740157499999996" x:Top="0.984251969"/>
+   </PageSetup>
+   <Unsynced/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

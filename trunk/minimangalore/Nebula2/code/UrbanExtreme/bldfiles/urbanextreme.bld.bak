@@ -1,0 +1,118 @@
+#-----------------------------------------------------------------------------
+#  demo.bld
+#  ============
+#  demo package definition
+#
+#  (C)2007 Kim Hyoun Woo  
+#-----------------------------------------------------------------------------
+beginmodule urbanextremeapp
+    setdir app
+    setheaders {
+        demoapp	
+    }
+    setfiles {	
+	demo 
+        demoapp		
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule urbanextremestates
+    setdir states
+    setheaders {   
+	startmenustate 
+	demogamestate
+	finishstate
+    }
+    setfiles {	
+	startmenustate 
+	demogamestate
+	finishstate
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule urbanextremeproperties
+    setdir properties
+    setfiles {       
+	ueplayercameraproperty
+	ueplayerinputproperty	
+	ueplayerphysicsproperty
+	ueplayeranimationproperty
+    }
+    setheaders {	      
+	ueplayercameraproperty	
+	ueplayerinputproperty	
+        ueplayerphysicsproperty
+	ueplayeranimationproperty
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule urbanextremephysics
+    setdir physics
+    setfiles {        
+        ueplayerentity        
+    }
+    setheaders {       
+        ueplayerentity
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule urbanextremeattributes
+    setdir attributes
+    setfiles {        
+        ueattributes        
+    }
+    setheaders {       
+        ueattributes
+    }
+endmodule
+#-----------------------------------------------------------------------------
+beginmodule urbanextrememsg
+    setdir msg
+    setfiles {        
+	ueplayerkey	
+	ueplayeraction
+    }
+    setheaders {
+        ueplayerkey	
+	ueplayeraction
+    }
+endmodule
+#-----------------------------------------------------------------------------
+
+begintarget urbanextreme
+    annotate "Insert a brief annotation of the target"
+    settype exe
+    setmodules {
+	urbanextremeapp   
+	urbanextremestates
+        urbanextremeproperties
+	urbanextremeattributes 
+	urbanextremephysics
+        urbanextrememsg   	
+    }
+    settargetdeps {
+        nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndshow
+        ndsound
+        ngui
+        nnetwork
+        ntoollib
+        mangalore
+        nlua
+           }
+endtarget 
+#-----------------------------------------------------------------------------
+beginworkspace urbanextremeworkspace
+	setbinarydir {./bin/ }
+    settargets {
+        urbanextreme
+        mangalore
+    }
+endworkspace
+#-----------------------------------------------------------------------------
+# EOF
+#-----------------------------------------------------------------------------
