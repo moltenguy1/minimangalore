@@ -1,0 +1,32 @@
+0~60       대기자세            (c)
+80~90      대기-> stand 가속 변환
+90~130     stand 가속   (c)
+130~146    stand 가속 -> stand 고정 변환
+146~186    stand 고정 (c)
+195~215    stand 고정 -> stand left 변환
+215~247    stand left (c)
+247~266	   stand left -> stand 고정 변환
+266~286    stand 고정 -> stand right 변환
+286~318    stand right (c)
+318~338    stand right -> stand 고정 변환
+338~368    stand 고정 -> crouch 고정 변환
+368~408    crouch 고정 (c)
+410~415    crouch 고정 -> crouch 가속 변환
+415~447    crouch 가속 (c)
+447~452    crouch 가속 -> crouch 고정 변환
+452~472    crouch 고정 -> crouch left 변환
+472~504    crouch left (c)
+504~524    crouch left -> crouch 고정 변환
+524~544    crouch 고정 -> crouch right 변환
+544~576    crouch right (c)
+576~596    crouch right -> crouch 고정 변환
+596~631    crouch 고정 -> prone 고정 변환
+641~681    prone 고정 (c)
+681~701    prone 고정 -> prone left 변환
+701~733    prone left (c)
+733~753    prone left -> prone 고정 변환
+753~773    prone 고정 -> prone right 변환
+773~805    prone right (c)
+805~825    prone right -> prone 고정 변환
+825~860    prone 고정 -> crouch 고정 변환
+860~890    crouch 고정 -> stand 고정 변환
