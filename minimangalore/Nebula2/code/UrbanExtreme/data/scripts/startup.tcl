@@ -26,8 +26,8 @@ proc OnStartup {} {
     set proj [.manglepath "proj:"]
     set home [.manglepath "home:"]
 
-    .setassign "data"     "$proj/data/"
-    .setassign "export"   "$proj/export/"
+    .setassign "data"     "$home/data/"
+    .setassign "export"   "$home/export/"
 
     .setassign "renderpath" "data:shaders"
     .setassign "scripts"    "data:scripts"

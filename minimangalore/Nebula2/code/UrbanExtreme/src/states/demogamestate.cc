@@ -347,11 +347,11 @@ bool DemoGameState::CreatePlayer()
 	Ptr<Game::Property> gp = factoryManager->CreateProperty("ActorGraphicsProperty");
 	this->player->AttachProperty(gp);
 
-	this->player->SetString(Attr::Graphics, "urbanextreame/ueplayer");	// *.n2
+	this->player->SetString(Attr::Graphics, "urbanextreme/ueplayer");	// *.n2
 	this->player->SetString(Attr::AnimSet, "UePlayer");	// FieldName in anim.xml 
 
 /*
-	this->player->SetString(Attr::Graphics, "urbanextreame/character01");
+	this->player->SetString(Attr::Graphics, "urbanextreme/character01");
 	this->player->SetString(Attr::AnimSet, "UePlayer");	// FieldName in anim.xml */
 
 
@@ -417,7 +417,7 @@ bool DemoGameState::CreateEnvironment()
 	Util::SegmentedGfxUtil segGfxUtil;
 	nArray<Ptr<Graphics::Entity>> gfxEntities;
 
-	nString resName("urbanextreame/bg");	// gfx:/*.n2
+	nString resName("urbanextreme/bg");	// gfx:/*.n2
 
 	worldMatrix.translate(vector3(0.0f, 0.0f, 0.0f));
 	gfxEntities = segGfxUtil.CreateAndSetupGraphicsEntities(resName, worldMatrix, false);
@@ -428,7 +428,7 @@ bool DemoGameState::CreateEnvironment()
 	Ptr<Physics::MeshShape> meshShape;
 
 	// physics_mesh
-	collideFilename.Format("export:meshes/urbanextreame/bg_physicsmesh.n3d2");
+	collideFilename.Format("export:meshes/urbanextreme/bg_physicsmesh.n3d2");
 	meshShape = Physics::Server::Instance()->CreateMeshShape(worldMatrix,
 		Physics::MaterialTable::StringToMaterialType("Soil"),
 		collideFilename);
@@ -438,7 +438,7 @@ bool DemoGameState::CreateEnvironment()
 	//기본 월드 중점 지형	
 	
 /*
-	collideFilename.Format("export:meshes/urbanextreame/ground_physicsmesh.n3d2");
+	collideFilename.Format("export:meshes/urbanextreme/ground_physicsmesh.n3d2");
 			meshShape = Physics::Server::Instance()->CreateMeshShape(worldMatrix,
 				Physics::MaterialTable::StringToMaterialType("Soil"),
 				collideFilename);
@@ -504,7 +504,7 @@ void DemoGameState::CreateGUI()
 		char filename[256]={0,};
 		char objname[256]={0,};
 		char brushname[256]={0,};
-		sprintf(filename,"../urbanextreame/meter%d",i);
+		sprintf(filename,"../urbanextreme/meter%d",i);
 		sprintf(objname,"Obj_meter%d",i);
 		sprintf(brushname,"Brush_meter%d",i);
 		guiMeter[i] = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", objname);
@@ -515,25 +515,25 @@ void DemoGameState::CreateGUI()
 	}
 
 	this->guiReady = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Ready");
-	guiServer->GetSkin()->AddBrush("Brush_Ready", "../urbanextreame/ready", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Ready", "../urbanextreme/ready", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiReady->SetDefaultBrush("Brush_Ready");
 	this->guiReady->SetRect(rectangle(vector2(0.0f, 250.0f/768.0f), vector2(1024.0f/1024.0f, 518.0f/768.0f)));
 	this->guiReady->Hide();
 
 	this->guiStart  = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Start");
-	guiServer->GetSkin()->AddBrush("Brush_Start", "../urbanextreame/start", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Start", "../urbanextreme/start", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiStart->SetDefaultBrush("Brush_Start");
 	this->guiStart->SetRect(rectangle(vector2(0.0f, 250.0f/768.0f), vector2(1024.0f/1024.0f, 518.0f/768.0f)));
 	this->guiStart->Hide();
 
 	this->guiFinish  = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Finish");
-	guiServer->GetSkin()->AddBrush("Brush_Finish", "../urbanextreame/finish", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Finish", "../urbanextreme/finish", vector2(0.0f, 0.0f), vector2(1024.0f,268.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiFinish->SetDefaultBrush("Brush_Finish");
 	this->guiFinish->SetRect(rectangle(vector2(0.0f, 250.0f/768.0f), vector2(1024.0f/1024.0f, 518.0f/768.0f)));
 	this->guiFinish->Hide();
 
 	this->guiCanvasHow = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_How");
-	guiServer->GetSkin()->AddBrush("Brush_How", "../urbanextreame/how", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_How", "../urbanextreme/how", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiCanvasHow->SetDefaultBrush("Brush_How");
 	this->guiCanvasHow->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiCanvasHow->Hide();
@@ -542,31 +542,31 @@ void DemoGameState::CreateGUI()
 
 
 	this->guiEnding[0]=	(nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Ending2");
-	guiServer->GetSkin()->AddBrush("Brush_Ending2", "../urbanextreame/ending_2", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Ending2", "../urbanextreme/ending_2", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiEnding[0]->SetDefaultBrush("Brush_Ending2");
 	this->guiEnding[0]->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiEnding[0]->Hide();
 
 	this->guiEnding[1]=	(nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Ending3");
-	guiServer->GetSkin()->AddBrush("Brush_Ending3", "../urbanextreame/ending_3", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Ending3", "../urbanextreme/ending_3", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiEnding[1]->SetDefaultBrush("Brush_Ending3");
 	this->guiEnding[1]->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiEnding[1]->Hide();
 
 	this->guiEnding[2]=	(nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Ending4");
-	guiServer->GetSkin()->AddBrush("Brush_Ending4", "../urbanextreame/ending_4", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Ending4", "../urbanextreme/ending_4", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiEnding[2]->SetDefaultBrush("Brush_Ending4");
 	this->guiEnding[2]->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiEnding[2]->Hide();
 
 	this->guiEnding[3]=	(nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_Ending5");
-	guiServer->GetSkin()->AddBrush("Brush_Ending5", "../urbanextreame/ending_5", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_Ending5", "../urbanextreme/ending_5", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiEnding[3]->SetDefaultBrush("Brush_Ending5");
 	this->guiEnding[3]->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiEnding[3]->Hide();
 
 	this->guiNewRecord = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "Obj_NewRecord");
-	guiServer->GetSkin()->AddBrush("Brush_NewRecord", "../urbanextreame/ending", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("Brush_NewRecord", "../urbanextreme/ending", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiNewRecord->SetDefaultBrush("Brush_NewRecord");
 	this->guiNewRecord->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 	this->guiNewRecord->Hide();
