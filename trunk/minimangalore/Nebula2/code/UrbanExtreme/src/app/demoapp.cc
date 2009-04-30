@@ -34,7 +34,7 @@ bool ChaseCamDemoApp::Open()
 
 
 
-	this->SetProjectDirectory("home:");
+	//this->SetProjectDirectory("home:");
 
 
     if (!Application::App::Open())

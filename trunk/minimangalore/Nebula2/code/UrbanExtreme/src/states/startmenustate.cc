@@ -96,13 +96,13 @@ void GameMenuState::SetupGui()
 
 	// Canvas
 	this->guiCanvas = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "MainBG");
-	guiServer->GetSkin()->AddBrush("MainBG", "../urbanextreame/main", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("MainBG", "../urbanextreme/main", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiCanvas->SetDefaultBrush("MainBG");
 	this->guiCanvas->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f)));
 
  	// GameStart
  	this->guiBtGameStart = (nGuiButton*) nKernelServer::Instance()->New("nguibutton", "Obj_BTGameStart");
- 	guiServer->GetSkin()->AddBrush("Brush_GameStart", "../urbanextreame/main1",
+ 	guiServer->GetSkin()->AddBrush("Brush_GameStart", "../urbanextreme/main1",
  		vector2(0.0f, 0.0f), vector2(1024.0f, 32.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
  	this->guiBtGameStart->SetHighlightBrush("Brush_GameStart");
 	this->guiBtGameStart->SetRect(rectangle(vector2(0.0f, 219.0f/768.0f), vector2(1.0f,251.0f/768.0f)));
@@ -112,7 +112,7 @@ void GameMenuState::SetupGui()
  
  	// Exit
  	this->guiBtExit = (nGuiButton*) nKernelServer::Instance()->New("nguibutton", "Obj_BTExit");
- 	guiServer->GetSkin()->AddBrush("Brush_Exit", "../urbanextreame/main3",
+ 	guiServer->GetSkin()->AddBrush("Brush_Exit", "../urbanextreme/main3",
  		vector2(0.0f, 0.0f), vector2(1024.0f, 32.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
  	this->guiBtExit->SetHighlightBrush("Brush_Exit");
 	this->guiBtExit->SetRect(rectangle(vector2(0.0f, 283.0f/768.0f), vector2(1.0f,315.0f/768.0f)));
@@ -122,7 +122,7 @@ void GameMenuState::SetupGui()
 
 	// Credit
 	this->guiCredit = (nGuiCanvas*) nKernelServer::Instance()->New("nguicanvas", "MainCredit");
-	guiServer->GetSkin()->AddBrush("MainCredit", "../urbanextreame/credit", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
+	guiServer->GetSkin()->AddBrush("MainCredit", "../urbanextreme/credit", vector2(0.0f, 0.0f), vector2(1024.0f,768.0f), vector4(0.0f, 0.0f, 0.0f, 0.0f));
 	this->guiCredit->SetDefaultBrush("MainCredit");
 	this->guiCredit->SetRect(rectangle(vector2(0.0f, 0.0f), vector2(1.0f, 1.0f))); 
 	this->guiCredit->Hide();
