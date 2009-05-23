@@ -19,7 +19,7 @@ Physic Shape를 XML 로 추출하기
 
   * 예) 
 {{{
-   xmlpath = getINISetting "../plugcfg/mangalore.ini" "Material" "xmlpath"
+    xmlpath = getINISetting "../plugcfg/mangalore.ini" "Material" "xmlpath"
     xmlpath = "D:/dev/nebula2/code/vanquisher/data/tables/materials.xml"
     excel.workbooks.open xmlpath
 }}}
