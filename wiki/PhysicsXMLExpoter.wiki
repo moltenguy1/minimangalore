@@ -8,7 +8,8 @@ Physic Shape를 XML 로 추출하기
 
 2. 자신의 Nebula2 설치 폴더로 들어갑니다.
   * \trunk\nebula2\code\contrib\nmax\maxscripts\mangalore\scripts\mangalore
-  * build.py 파일을 실행합니다.
+  * build.bat 파일을 실행합니다. 
+
 3. 아래 경로에 폴더들 복사
   * \trunk\nebula2\code\contrib\nmax\maxscripts\mangalore
   * plugcfg , scripts 폴더를  3DMAX가 설치된 폴더에 복사
