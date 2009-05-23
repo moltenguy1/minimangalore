@@ -17,6 +17,12 @@ Physic Shape를 XML 로 추출하기
   * xmlpath = "D:\materials.xml" 를 자신의 nebula2\data\tables\materials.xml 로 수정합니다.
   * 자신의 프로젝트에 materials.xml을 사용시 자신의 프로젝트 폴더 안에 \data\tables\materials.xml로 합니다.
 
+  * 예) 
+{{{
+   xmlpath = getINISetting "../plugcfg/mangalore.ini" "Material" "xmlpath"
+    xmlpath = "D:/dev/nebula2/code/vanquisher/data/tables/materials.xml"
+    excel.workbooks.open xmlpath
+}}}
 
 = 사용 방법 =
 
