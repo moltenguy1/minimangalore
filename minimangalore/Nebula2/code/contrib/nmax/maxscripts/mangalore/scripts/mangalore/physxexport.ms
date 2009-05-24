@@ -94,7 +94,7 @@ fn ExportODESphere o =
 (
     pos = in coordsys parent o.pos;
 
-    xmlElementBegin "SphereBody"
+    xmlElementBegin "SphereShape"
     xmlAddAttribute "pos" (nPoint3 pos)
     xmlAddAttribute "radius" o.delegate.radius;
     xmlAddAttribute "mat" g_materials[o.materialIndex];
@@ -111,7 +111,7 @@ fn ExportODECapsule o =
     pos = in coordsys parent o.pos;
     rot = in coordsys parent o.rotation;
 
-    xmlElementBegin "CapsuleBody"
+    xmlElementBegin "CapsuleShape"
     xmlAddAttribute "pos" (nPoint3 pos)
     xmlAddAttribute "rot" (nQuat rot)
     xmlAddAttribute "radius" o.delegate.radius;
