@@ -47,10 +47,11 @@ Physic Shape를 XML 로 추출하기
 충돌 영역으로 사용할 도형을 선택 후 오른쪽 탭 메뉴의 "Hierarchy"에서 "Move/Rotate/Scale" 항목의 "Affect Pivot Only"를 클릭한 다음 "Alignment" 의 "Center to Object"를 클릭하면 됨. (수동으로 이동하는 것도 가능)
 
 2. "ODE Shape (Mangalore)"에서 Box 이외의 다른 도형, 즉 "Sphere"나 "Capsule"을 만들어서 Export하게 되면 성공적으로 추출이 되지만, 프로젝트에서 추출한 Physics용 xml 파일을 불러오게 되면 에러 발생. 해결 방법은 위에서 설치한 MaxScript 중 "physxexport.ms" 파일의 내용에서 다음 부분을 수정.
-
+  
   * ExportODESphere 함수에서 xmlElementBegin "SphereBody" 를 xmlElementBegin "SphereShape" 로 수정
   * ExportODECapsule 함수에서 xmlElementBegin "CapsuleBody" 를 xmlElementBegin "CapsuleShape" 로 수정
   * 이미 추출한 xml 파일의 경우 "SphereBody" 와 "CapsuleBody" 에서 "Body"만 "Shape"로 수정해도 됨)
+  * 저장소에 수정된 "physxexport.ms"파일 commit 하였음.
 
 3. XML로 추출한 Physic Shape를 사용하면 오브젝트보다 심하게 크게 나오는 현상은 3DMAX 오른쪽 탭메뉴에서 "Utilities"란 에서 "More..." 버튼을 클릭 리스트에서 "Nebula2"를 선택하고 나오는 메뉴에서 "Scale Geometry By"에 0.01로 되있는 수치를 1로 수정하던가 "physxexport.ms"에 파일 내용에 사이즈 추출부분 값을 1/100을 한후 추출하던가 해야 합니다.
 
