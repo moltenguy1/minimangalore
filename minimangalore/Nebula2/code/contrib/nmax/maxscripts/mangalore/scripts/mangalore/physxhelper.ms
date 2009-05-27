@@ -26,7 +26,7 @@ fn CollectMaterials =
     excel = createOLEObject "excel.application"
 
     xmlpath = getINISetting "../plugcfg/mangalore.ini" "Material" "xmlpath"
-    xmlpath = "D:\materials.xml"
+    xmlpath = "D:/dev/nebula2/code/vanquisher/data/tables/materials.xml"
     excel.workbooks.open xmlpath
 
     row = 3;
