@@ -51,9 +51,10 @@ Physic Shape를 XML 로 추출하기
   * ExportODESphere 함수에서 xmlElementBegin "SphereBody" 를 xmlElementBegin "SphereShape" 로 수정
   * ExportODECapsule 함수에서 xmlElementBegin "CapsuleBody" 를 xmlElementBegin "CapsuleShape" 로 수정
   * 이미 추출한 xml 파일의 경우 "SphereBody" 와 "CapsuleBody" 에서 "Body"만 "Shape"로 수정해도 됨)
-  * 저장소에 수정된 "physxexport.ms"파일 commit 하였음.
+  *저장소에 수정된 "physxexport.ms"파일 commit 하였음*
 
 3. XML로 추출한 Physic Shape를 사용하면 오브젝트보다 심하게 크게 나오는 현상은 3DMAX 오른쪽 탭메뉴에서 "Utilities"란 에서 "More..." 버튼을 클릭 리스트에서 "Nebula2"를 선택하고 나오는 메뉴에서 "Scale Geometry By"에 0.01로 되있는 수치를 1로 수정하던가 "physxexport.ms"에 파일 내용에 사이즈 추출부분 값을 1/100을 한후 추출하던가 해야 합니다.
+  *GetGeomScaleValue함수를 노출시켜서 physexport.ms에서 스케일 적용된 값으로 추출되게 수정하였음*
 
 --------------------------------------------------------------------------------------
 <---------- 틀리거나 빠진부분은 계속 수정 --------------->
