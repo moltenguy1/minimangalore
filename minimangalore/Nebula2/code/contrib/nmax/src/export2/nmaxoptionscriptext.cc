@@ -28,3 +28,14 @@ const char* GetProjDir()
 
     return strdup(projDir.Get());
 }
+
+
+//-----------------------------------------------------------------------------
+/**
+
+*/
+float GetGeomScaleValue()
+{
+    nMaxOptions* options = nMaxOptions::Instance();
+	return options->GetGeomScaleValue();
+}

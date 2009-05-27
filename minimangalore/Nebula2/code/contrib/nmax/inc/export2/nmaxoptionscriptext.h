@@ -7,5 +7,6 @@
 #define N_MAXOPTIONSCRIPTEXT_H
 
 const char* GetProjDir();
+float GetGeomScaleValue();
 
 #endif
