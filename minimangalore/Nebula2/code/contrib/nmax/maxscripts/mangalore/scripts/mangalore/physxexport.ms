@@ -98,7 +98,7 @@ fn ExportODESphere o =
     xmlAddAttribute "pos" (nPoint3 pos)
     xmlAddAttribute "radius" o.delegate.radius;
     xmlAddAttribute "mat" g_materials[o.materialIndex];
-    xmlElementEnd() -- SphereBody
+    xmlElementEnd() -- SphereShape
 
 )
 
@@ -117,7 +117,7 @@ fn ExportODECapsule o =
     xmlAddAttribute "radius" o.delegate.radius;
     xmlAddAttribute "length" o.delegate.height;
     xmlAddAttribute "mat" g_materials[o.materialIndex];
-    xmlElementEnd() -- CapsuleBody
+    xmlElementEnd() -- CapsuleShape
 )
 
 -------------------------------------------------------------------------------
