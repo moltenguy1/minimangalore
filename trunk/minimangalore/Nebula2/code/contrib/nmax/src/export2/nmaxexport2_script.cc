@@ -3,9 +3,13 @@
 //
 //  (C)2004 Kim, Hyoun Woo
 //-----------------------------------------------------------------------------
+
 #include <maxscrpt/maxscrpt.h>
 #include <maxscrpt/parser.h>
+#include <maxscrpt/numbers.h>
 #include <maxscrpt/definsfn.h>
+
+
 
 #include "export2/nmax.h"
 #include "base/nmaxlistener.h"
@@ -13,6 +17,7 @@
 #include "pluginlibs/nmaxdirdlg.h"
 
 #include "export2/nmaxoptionscriptext.h"
+
 
 //-----------------------------------------------------------------------------
 /**
@@ -240,3 +245,19 @@ Value* nIsConnectedIpc_cf(Value** arg_list, int count)
 
 def_visible_primitive(nIsConnectedIpc, "nIsConnectedIpc");
 
+
+//-----------------------------------------------------------------------------
+/**
+*/
+
+Value* nGetGeomScaleValue_cf(Value** arg_list, int count)
+{
+    one_typed_value_local(Value* result);
+	Value* result = &undefined;
+
+	result = new Float(GetGeomScaleValue());
+
+    return_value(result);
+}
+
+def_visible_primitive(nGetGeomScaleValue, "nGetGeomScaleValue");

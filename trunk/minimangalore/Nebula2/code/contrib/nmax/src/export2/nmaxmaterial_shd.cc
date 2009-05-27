@@ -657,7 +657,8 @@ void GenerateScript(TiXmlElement* elemParam, nString& shdName, nString& strParam
                 // openEvent
                 tmp.Format("\t\t\t%s_modulation.selection = %s[9];\n", paramName.Get(), paramName.Get(), paramName.Get() );    openEvent += tmp;
                 tmp.Format("\t\t\tparams = \"\"\n");    openEvent += tmp;
-                for( int i = 1; i<6; ++i )
+                int i;
+				for( i = 1; i<6; ++i )
                 {
                     tmp.Format("\t\t\tparams += (%s[%d] as string) + \", \"\n", paramName.Get(), i);    openEvent += tmp;
                 }
@@ -708,7 +709,8 @@ void GenerateScript(TiXmlElement* elemParam, nString& shdName, nString& strParam
 #if USE_ACTIVEX_ENVELOPECURVE_CTRL
                 // open event
                 tmp.Format("\t\t\tparams = \"\"\n");    openEvent += tmp;
-                for( int i = 1; i< 14; ++i )
+				int i;
+                for( i = 1; i< 14; ++i )
                 {
                     tmp.Format("\t\t\tparams += (%s[%d] as string) + \", \"\n", paramName.Get(), i);    openEvent += tmp;
                 }
