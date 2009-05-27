@@ -70,13 +70,22 @@ fn ExportODEBox o =
 --    o.pos.z += o.size.z * 1.5;
     pos = in coordsys parent o.pos;
     rot = in coordsys parent o.rotation;
-    local size = ""
-    size += (o.delegate.width as string);
-    size += " "
-    size += (o.delegate.height as string);
-    size += " "
-    size += (o.delegate.length as string);
 	
+	scale = nGetGeomScaleValue();
+	pos.x *= scale;
+	pos.y *= scale;
+	pos.z *= scale;	
+	width = o.delegate.width * scale;
+	height = o.delegate.height * scale;
+	length = o.delegate.length * scale;
+		
+    local size = ""
+    size += (width as string);
+    size += " "
+    size += (height as string);
+    size += " "
+    size += (length as string);
+		
     xmlElementBegin "BoxShape"
     xmlAddAttribute "pos" (nPoint3 pos)
     xmlAddAttribute "rot" (nQuat rot)
@@ -93,10 +102,16 @@ fn ExportODEBox o =
 fn ExportODESphere o =
 (
     pos = in coordsys parent o.pos;
+	
+	scale = nGetGeomScaleValue();
+	pos.x *= scale;
+	pos.y *= scale;
+	pos.z *= scale;	
+	radius = o.delegate.radius * scale;
 
     xmlElementBegin "SphereShape"
     xmlAddAttribute "pos" (nPoint3 pos)
-    xmlAddAttribute "radius" o.delegate.radius;
+    xmlAddAttribute "radius" radius;
     xmlAddAttribute "mat" g_materials[o.materialIndex];
     xmlElementEnd() -- SphereShape
 
@@ -111,11 +126,18 @@ fn ExportODECapsule o =
     pos = in coordsys parent o.pos;
     rot = in coordsys parent o.rotation;
 
+	scale = nGetGeomScaleValue();
+	pos.x *= scale;
+	pos.y *= scale;
+	pos.z *= scale;	
+	radius = o.delegate.radius * scale;	
+	height = o.delegate.height * scale;	
+	
     xmlElementBegin "CapsuleShape"
     xmlAddAttribute "pos" (nPoint3 pos)
     xmlAddAttribute "rot" (nQuat rot)
-    xmlAddAttribute "radius" o.delegate.radius;
-    xmlAddAttribute "length" o.delegate.height;
+    xmlAddAttribute "radius" radius;
+    xmlAddAttribute "length" height;
     xmlAddAttribute "mat" g_materials[o.materialIndex];
     xmlElementEnd() -- CapsuleShape
 )
@@ -188,6 +210,11 @@ fn ExportODEBody o m isRagDoll =
     --pos = in coordsys world o.center;
     rot = in coordsys world o.rotation;
 
+	scale = nGetGeomScaleValue();
+	pos.x *= scale;
+	pos.y *= scale;
+	pos.z *= scale;	
+	
     xmlElementBegin "RigidBody"
     xmlAddAttribute "name" o.name;
     xmlAddAttribute "pos" (nPoint3 pos)
