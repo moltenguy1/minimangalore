@@ -34,7 +34,7 @@ OutFile "${SRCDIR}\nmaxtoolbox_${DATE_TODAY}.exe"
 ; use an XP manifest thingie
 XPStyle on
 ; default installation directory
-InstallDir "c:\3dsmax8"
+InstallDir "C:\Program Files\Autodesk\3ds Max 9"
 ; get installation folder from registry if available
 ;InstallDirRegKey HKLM "${PRODUCT_INST_REGKEY}" "installdir"
 
