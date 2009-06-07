@@ -1,0 +1,4 @@
+tutorial 03
+
+use of mangale message system to control to the camera (tutorial02) with the mouse.
+

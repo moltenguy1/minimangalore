@@ -1,0 +1,98 @@
+#-----------------------------------------------------------------------------
+#  tutorial05b.bld
+#  ============
+#  tutorial 05b package definition
+#
+#  (C) 2006 je.a.le@wanadoo.fr for nebula2   
+#-----------------------------------------------------------------------------
+beginmodule mtutorial05b::tutorialapp
+    setdir mtutorial05b
+    setfiles {
+        mtestapp
+        mtest
+    }    
+    setheaders {
+        mtestapp
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial05b::state
+    setdir mtutorial05b/state
+    setfiles {
+        mtestgamestatehandler
+    }
+    setheaders {
+    	mtestgamestatehandler
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial05b::math
+    setdir mtutorial05b
+    setheaders {
+        mathext
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial05b::property
+    setdir mtutorial05b/property
+    setheaders {
+       polarcameraproperty
+       opelphysicsproperty
+       opelinputproperty
+       }
+    setfiles {
+    	polarcameraproperty
+	opelphysicsproperty
+       opelinputproperty
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial05b::message
+    setdir mtutorial05b/message
+    setheaders {
+    	polarsystemvalues
+	opelcontrolvalues
+      }
+    setfiles {
+    	polarsystemvalues
+	opelcontrolvalues
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+begintarget mTutorial05bPhysics
+    settype exe
+    setmodules {
+       mtutorial05b::tutorialapp
+       mtutorial05b::math
+       mtutorial05b::property
+       mtutorial05b::message
+       mtutorial05b::state
+      }
+       
+    settargetdeps {
+    	nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndsound
+        ndshow
+        ngui
+        nnetwork
+        ntoollib
+        mangalore	
+   }
+endtarget
+
+#--------------------------------------------------------------------------------
+beginworkspace mTutorial05bPhysics
+    settargets {
+        mTutorial05bPhysics
+        mangalore
+    }
+endworkspace

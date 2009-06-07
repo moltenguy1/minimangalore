@@ -1,0 +1,99 @@
+#-----------------------------------------------------------------------------
+#  tutorial06DamageByTexture.bld
+#  ============
+#  tutorial 06
+#
+#  (C) 2007 je.a.le@wanadoo.fr for nebula2   
+#-----------------------------------------------------------------------------
+beginmodule mtutorial06::tutorialapp
+    setdir mtutorial06
+    setfiles {
+        mtestapp
+        mtest
+    }    
+    setheaders {
+        mtestapp
+	rootext
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial06::state
+    setdir mtutorial06/state
+    setfiles {
+        mtestgamestatehandler
+    }
+    setheaders {
+    	mtestgamestatehandler
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial06::math
+    setdir mtutorial06
+    setheaders {
+        mathext
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial06::property
+    setdir mtutorial06/property
+    setheaders {
+       polarcameraproperty
+     	polarcamerainputproperty
+	opeldamageproperty
+     }
+    setfiles {
+    	polarcameraproperty
+   	polarcamerainputproperty
+	opeldamageproperty
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial06::message
+    setdir mtutorial06/message
+    setheaders {
+    	polarsystemvalues
+	damagevalues
+      }
+    setfiles {
+    	polarsystemvalues
+	damagevalues
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+begintarget mTutorial06DamageByTexture
+    settype exe
+    setmodules {
+       mtutorial06::tutorialapp
+       mtutorial06::state
+       mtutorial06::math
+       mtutorial06::property
+       mtutorial06::message
+       }
+       
+    settargetdeps {
+    	nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndsound
+        ndshow
+        ngui
+        nnetwork
+        ntoollib
+        mangalore	
+   }
+endtarget
+
+#--------------------------------------------------------------------------------
+beginworkspace mTutorial06DamageByTexture
+    settargets {
+        mTutorial06DamageByTexture
+        mangalore
+    }
+endworkspace

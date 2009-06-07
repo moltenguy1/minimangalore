@@ -1,0 +1,7 @@
+This is the same as tutorial 05 but this time use a more realistic physic model :
+simulate a differential gear
+apply a progressive power courb (velocity/fmax)
+
+STILL BETA !!!!
+
+what's still wrong : contact with ground, lighting/shadow

@@ -1,0 +1,281 @@
+//------------------------------------------------------------------------------
+//  properties/inputproperty.cc
+//  (C) je.a.le@wanadoo.fr
+//------------------------------------------------------------------------------
+#include "mtutorial06/property/polarcamerainputproperty.h"
+
+#include "properties/inputproperty.h"
+#include "managers/focusmanager.h"
+#include "game/entity.h"
+#include "input/server.h"
+#include "input/event.h"
+#include "input/mapping.h"
+#include "input/priority.h"
+#include "input/source.h"
+#include "foundation/factory.h" 
+
+// the message class used for communication
+#include "mtutorial06/message/polarsystemvalues.h"
+#include "mtutorial06/message/damagevalues.h"
+#include "managers/entitymanager.h"
+#include "mtutorial06/property/opeldamageproperty.h"
+
+namespace Properties
+{
+ImplementRtti(Properties::PolarCameraInputProperty, Properties::InputProperty);
+ImplementFactory(Properties::PolarCameraInputProperty);
+
+using namespace Message;
+using namespace Game;
+using namespace Managers;
+using namespace Input;
+
+//------------------------------------------------------------------------------
+PolarCameraInputProperty::PolarCameraInputProperty()
+{
+    // empty
+}
+
+//------------------------------------------------------------------------------
+PolarCameraInputProperty::~PolarCameraInputProperty()
+{
+    // empty
+}
+
+//------------------------------------------------------------------------------
+/**
+/// setup default entity attributes
+*/
+void PolarCameraInputProperty::SetupDefaultAttributes()
+{
+	InputProperty::SetupDefaultAttributes();
+}
+
+//------------------------------------------------------------------------------
+/**
+    This method is called by the FocusManager when our entity gains the
+    camera focus. Override this method if your subclass needs to do
+    some initialization when gaining the camera focus.
+*/
+void
+PolarCameraInputProperty::OnObtainFocus()
+{
+	InputProperty::OnObtainFocus();
+
+	// add input sink
+    Input::Server* inputServer = Input::Server::Instance();
+	
+	// first, if mapping not already set (from startup script...), does it
+	if( inputServer->HasMapping( "vwrLeft" ) == false ) {
+		inputServer->AddMapping("vwrLeft", "relmouse0:-x");
+		inputServer->AddMapping("vwrRight", "relmouse0:+x");
+		inputServer->AddMapping("vwrUp", "relmouse0:+y");
+		inputServer->AddMapping("vwrDown", "relmouse0:-y");
+		inputServer->AddMapping("zoomOut", "relmouse0:+zbtn");
+		inputServer->AddMapping("zoomIn", "relmouse0:-zbtn");
+		
+		// handle keyboad/damage emulation here ; not really good but this avoid
+		// the use of several others classes
+		inputServer->AddMapping("no_damage", "keyb0:0");
+		inputServer->AddMapping("damage1", "keyb0:1");
+		inputServer->AddMapping("damage2", "keyb0:2");
+		inputServer->AddMapping("paint_yellow", "keyb0:y");
+		inputServer->AddMapping("paint_red", "keyb0:r");		
+	}
+
+	// attach sink, when this mapping is set, input server will infor this property.
+	inputServer->AttachInputSink("vwrLeft", Input::InputPriority_MousePositionTracking, this );	
+	inputServer->AttachInputSink("vwrRight", Input::InputPriority_MousePositionTracking, this );	
+	inputServer->AttachInputSink("vwrUp", Input::InputPriority_MousePositionTracking, this );	
+	inputServer->AttachInputSink("vwrDown", Input::InputPriority_MousePositionTracking, this );	
+	inputServer->AttachInputSink("zoomOut", Input::InputPriority_MousePositionTracking, this );	
+	inputServer->AttachInputSink("zoomIn", Input::InputPriority_MousePositionTracking, this );	
+	
+	inputServer->AttachInputSink("no_damage", Input::InputPriority_DefaultGamePriority, this );
+	inputServer->AttachInputSink("damage1", Input::InputPriority_DefaultGamePriority, this );
+	inputServer->AttachInputSink("damage2", Input::InputPriority_DefaultGamePriority, this );
+	inputServer->AttachInputSink("paint_yellow", Input::InputPriority_DefaultGamePriority, this );
+	inputServer->AttachInputSink("paint_red", Input::InputPriority_DefaultGamePriority, this );
+}
+
+//------------------------------------------------------------------------------
+/**
+    This method is called by the FocusManager when our entity loses
+    the camera focus. Override this method if your subclass needs to do any
+    cleanup work here.
+*/
+void PolarCameraInputProperty::OnLoseFocus()
+{
+	InputProperty::OnLoseFocus();
+
+	// remove input sink
+    Input::Server* inputServer = Input::Server::Instance();
+
+	inputServer->RemoveInputSink("vwrLeft", this );	
+	inputServer->RemoveInputSink("vwrRight", this );	
+	inputServer->RemoveInputSink("vwrUp", this );	
+	inputServer->RemoveInputSink("vwrDown", this );	
+	inputServer->RemoveInputSink("zoomOut", this );	
+	inputServer->RemoveInputSink("zoomIn", this );		
+
+	inputServer->RemoveInputSink("no_damage", this );	
+	inputServer->RemoveInputSink("damage1", this );	
+	inputServer->RemoveInputSink("damage2", this );	
+	inputServer->RemoveInputSink("paint_yellow", this );	
+	inputServer->RemoveInputSink("paint_red", this );	
+}
+
+//------------------------------------------------------------------------------
+/**
+    This method is inherited from the Port class. If your property acts as
+    a message handler you must implement the Accepts() method to return
+    true for each message that is accepted. By default no messages are accepted.
+*/
+bool PolarCameraInputProperty::Accepts(Message::Msg* msg)
+{
+	n_assert(msg);
+	
+	// accept input message
+	if( msg->CheckId(Input::Event::Id) ) {
+		return true;
+	}
+
+	// not here...
+    return( Message::Port::Accepts(msg) );
+}
+
+//------------------------------------------------------------------------------
+/**
+    This method is inherited from the Port class. If your property acts as
+    a message handler you must implement the HandleMessage() method to
+    process the incoming messages. Please note that HandleMessage() will
+    not be called "automagically" because the Property doesn't know at which
+    point in the frame you want to handle pending messages.
+
+    Thus, you must call the HandlePendingMessages() yourself from either OnBeginFrame(),
+    OnMoveBefore(), OnMoveAfter() or OnRender().
+
+    The simple rule is: if you override the Accepts() method, you must also call
+    HandlePendingMessages() either in OnBeginFrame(), OnMoveBefore(), OnMoveAfter()
+    or OnRender()
+*/
+// NOTA : HandlePendingMessages is already call from Property::OnFrame
+void PolarCameraInputProperty::HandleMessage(Message::Msg* msg)
+{
+    n_assert(msg);
+   
+	// check for input msg
+	if (msg->CheckId(Input::Event::Id)) {
+        Event* event = static_cast<Event*>(msg);
+   
+		// create a new message
+ 		Ptr<PolarSystemValues> message = Message::PolarSystemValues::Create(); 			
+ 		message->SetUseDynamicsValues();
+
+		// emulate damage/colision ; only for one mesh  :chassis (static_0_0)
+ 		Ptr<DamageValues> dmg = Message::DamageValues::Create(); 
+ 		dmg->SetEntityName( nString( "opelblitz/model/static_0_0" ) );			
+
+		// NOTA : there're several types of input message, mouse, keyboard but
+		// also frame (!), etc 
+		switch( event->GetType() ) {
+			case Input::Event::Type::AxisMoved :
+			{
+				const nString& name = event->GetMapping()->GetName();
+
+				if( name == "vwrLeft" ) {				
+					message->SetTheta( event->GetAxisValue() );					
+					break;
+				}
+				
+				if( name == "vwrRight" ) {
+					message->SetTheta( 0 - event->GetAxisValue() );					
+					break;					
+				}
+
+				if( name == "vwrUp" ) {
+					message->SetPhi( event->GetAxisValue() );					
+					break;
+				}
+				
+				if( name == "vwrDown" ) {
+					message->SetPhi( 0 - event->GetAxisValue() );					
+					break;
+				}
+				
+				// not found
+				break;
+			}
+
+			case Input::Event::Type::ButtonDown :
+			{
+				const nString& name = event->GetMapping()->GetName();
+
+				if( name == "zoomOut" ) {
+					message->SetDistance( 2.5 );					
+					break;					
+				}
+				
+				if( name == "zoomIn" ) {
+					message->SetDistance( -2.5 );					
+					break;
+				}
+		
+				if( name == "no_damage" ) {
+					dmg->SetType( DamageValues::Type::D_NONE );
+					break;
+				}							
+				if( name == "damage1" ) {
+					dmg->SetType( DamageValues::Type::D_LEVEL_1 );
+					break;
+				}		
+				if( name == "damage2" ) {
+					dmg->SetType( DamageValues::Type::D_LEVEL_2 );
+					break;
+				}		
+				if( name == "paint_yellow" ) {
+					dmg->SetType( DamageValues::Type::D_LEVEL_YELLOW );
+					break;
+				}		
+				if( name == "paint_red" ) {
+					dmg->SetType( DamageValues::Type::D_LEVEL_RED );
+					break;
+				}		
+						
+				break;
+			}
+			
+			default :
+				break;
+		}
+		
+		// broadcast only if at least one value set
+		if( message->DataIsSet() ) {
+			// broadcast the message. the first listener that undersand it 
+			// (here extcameraproperty) will use it. with SendAsync it's possible
+			// to target an only one listener. Using Sync call the listener would stop
+			// is word to parse the message, the result could be undtermined....
+			message->BroadcastAsync();
+			
+			// inform other listener this message was handled
+			event->SetHandled();
+			return;
+		}
+
+		// since it's for "opelblitz" doesn't broadcast
+		if( dmg->DataIsSet() ) {
+			// get entity by name
+//			Ptr<Game::Entity> opel = Managers::EntityManager::Instance()->GetEntityByName( "Opelblitz", true );	// only if exist
+			Ptr<Game::Entity> opel = EntityManager::Instance()->GetEntityByName( "Opelblitz", true );	// only if exist
+		    dmg->SendAsync( opel->FindProperty( OpelDamageProperty::RTTI ) );
+			event->SetHandled();
+			return;	
+		}
+
+		// not handled, continue...
+    }
+
+    Message::Port::HandleMessage(msg);
+}
+
+}; // namespace Properties
