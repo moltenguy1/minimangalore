@@ -1,0 +1,71 @@
+#-----------------------------------------------------------------------------
+#  tutorial02.bld
+#  ============
+#  tutorial 02 package definition
+#
+#  (C) 2006 je.a.le@wanadoo.fr for nebula2   
+#-----------------------------------------------------------------------------
+beginmodule mtutorial02::app
+    setdir mtutorial02
+    setfiles {
+        mtestapp
+        mtest
+    }    
+    setheaders {
+        mtestapp
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial02::statehandler
+    setdir mtutorial02/state
+    setfiles {
+        mtestgamestatehandler
+    }
+    setheaders {
+    	mtestgamestatehandler
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial02::property
+    setdir mtutorial02/property
+    setheaders {
+       polarcameraproperty
+      }
+    setfiles {
+    	polarcameraproperty
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+begintarget mTutorial02FirstObject
+    settype exe
+    setmodules {
+       mtutorial02::app
+       mtutorial02::statehandler
+       mtutorial02::property
+     }
+       
+    settargetdeps {
+    	nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndsound
+        ndshow
+        ngui
+        nnetwork
+        ntoollib
+        mangalore	
+   }
+endtarget
+
+#--------------------------------------------------------------------------------
+beginworkspace mTutorial02FirstObject
+    settargets {
+        mTutorial02FirstObject
+        mangalore
+    }
+endworkspace

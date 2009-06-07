@@ -1,0 +1,101 @@
+#-----------------------------------------------------------------------------
+#  tutorial04.bld
+#  ============
+#  tutorial 04 package definition
+#
+#  (C) 2006 je.a.le@wanadoo.fr for nebula2   
+#-----------------------------------------------------------------------------
+beginmodule mtutorial04::tutorialapp
+    setdir mtutorial04
+    setfiles {
+        mtestapp
+        mtest
+    }    
+    setheaders {
+        mtestapp
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial04::state
+    setdir mtutorial04/state
+    setfiles {
+        mtestenterstatehandler
+        mtestgamestatehandler
+        mtestpausestatehandler
+       mtestexitstatehandler
+     }
+    setheaders {
+    	mtestenterstatehandler
+	mtestgamestatehandler
+         mtestpausestatehandler
+        mtestexitstatehandler
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial04::math
+    setdir mtutorial04
+    setheaders {
+        mathext
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial04::property
+    setdir mtutorial04/property
+    setheaders {
+      	polarcameraproperty
+    	polarcamerainputproperty
+   	pauseinputproperty
+       }
+    setfiles {
+    	polarcameraproperty
+  	polarcamerainputproperty
+   	pauseinputproperty
+       }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial04::message
+    setdir mtutorial04/message
+    setheaders {
+    	polarsystemvalues
+      }
+    setfiles {
+    	polarsystemvalues
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+begintarget mTutorial04StateHandler
+    settype exe
+    setmodules {
+       mtutorial04::tutorialapp
+       mtutorial04::state
+       mtutorial04::math
+       mtutorial04::property
+       mtutorial04::message
+       }
+       
+    settargetdeps {
+    	nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndsound
+        ndshow
+        ngui
+        nnetwork
+        ntoollib
+        mangalore	
+   }
+endtarget
+#--------------------------------------------------------------------------------
+beginworkspace mTutorial04StateHandler
+    settargets {
+        mTutorial04StateHandler
+        mangalore
+    }
+endworkspace

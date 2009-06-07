@@ -1,0 +1,13 @@
+tutorial 02
+
+First use of the gui to display debug information
+Add our own game state handler
+setting a primitive lightning
+create a new camera class/property, and use it
+display an object
+use the attr and property system
+
+Nota : no input control yet, look at tutorial03 for that
+Nota : the state handler isn't really used until tutorial04
+
+Until the add of a real documentation, check the source...

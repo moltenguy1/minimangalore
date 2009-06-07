@@ -1,0 +1,94 @@
+#-----------------------------------------------------------------------------
+#  tutorial03.bld
+#  ============
+#  tutorial 03 package definition
+#
+#  (C) 2006 je.a.le@wanadoo.fr for nebula2   
+#-----------------------------------------------------------------------------
+beginmodule mtutorial03::tutorialapp
+    setdir mtutorial03
+    setfiles {
+        mtestapp
+        mtest
+    }    
+    setheaders {
+        mtestapp
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial03::state
+    setdir mtutorial03/state
+    setfiles {
+        mtestgamestatehandler
+    }
+    setheaders {
+    	mtestgamestatehandler
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial03::math
+    setdir mtutorial03
+    setheaders {
+        mathext
+    }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial03::property
+    setdir mtutorial03/property
+    setheaders {
+       polarcameraproperty
+     	polarcamerainputproperty
+     }
+    setfiles {
+    	polarcameraproperty
+   	polarcamerainputproperty
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+beginmodule mtutorial03::message
+    setdir mtutorial03/message
+    setheaders {
+    	polarsystemvalues
+      }
+    setfiles {
+    	polarsystemvalues
+     }
+endmodule
+
+#-------------------------------------------------------------------------------
+begintarget mTutorial03InputandMessage
+    settype exe
+    setmodules {
+       mtutorial03::tutorialapp
+       mtutorial03::state
+       mtutorial03::math
+       mtutorial03::property
+       mtutorial03::message
+       }
+       
+    settargetdeps {
+    	nkernel
+        nnebula
+        microtcl
+        ndinput8
+        ndirect3d9
+        ndsound
+        ndshow
+        ngui
+        nnetwork
+        ntoollib
+        mangalore	
+   }
+endtarget
+
+#--------------------------------------------------------------------------------
+beginworkspace mTutorial03InputandMessage
+    settargets {
+        mTutorial03InputandMessage
+        mangalore
+    }
+endworkspace

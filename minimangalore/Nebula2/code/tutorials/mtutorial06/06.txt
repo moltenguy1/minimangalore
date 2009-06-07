@@ -1,0 +1,9 @@
+tutorial 06 : "damage" by texture
+
+base : tutorial 03 (just to keep things simple :-) )
+
+just few lines to explain how to perform damage level(s) on a model by texture. (or just change texture at run time...)
+Of course this must be link to physics colision, and must be used with a model with more than 3 meshes ! (else it's kind of
+90's game ...)
+
+job done in opeldamageproperty  ; emulation of collision detection by keyboard

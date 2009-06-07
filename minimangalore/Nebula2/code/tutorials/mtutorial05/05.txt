@@ -1,0 +1,18 @@
+tutorial 05 : introduction to physics simulation
+
+nota : fall back to one simple state game in order to have a code simpler
+
+what new here :
+introduction of physics model : control the opelblitz
+xml description files (2 included)
+physics property
+enabling physics simulation
+use of a simple/primitive input method 
+
+you MUST read the ode documentation.
+
+Still no full documentation but I add a lot of comment, should be ok for now :-)
+
+THIS IS STILL BETA. Thinks not properly working (yet) : contact/friction ; tuning of the xml file ; pb with lighting. So, if you got answers, post on the forum !! (because I fucking don't get what's wrong !)
+
+A+
