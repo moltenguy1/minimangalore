@@ -27,7 +27,7 @@ fn CollectMaterials =
 
     xmlpath = getINISetting "../plugcfg/mangalore.ini" "Material" "xmlpath"
     xmlpath = "D:/dev/nebula2/code/vanquisher/data/tables/materials.xml"
-	xmlpath = nGetProjDir() + "data\\tables\\materials.xml"
+    xmlpath = nGetProjDir() + "data\\tables\\materials.xml"
 	
     excel.workbooks.open xmlpath
 
