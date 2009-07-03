@@ -18,6 +18,7 @@
 #include "physics/balljoint.h"
 #include "physics/hinge2joint.h"
 #include "physics/amotor.h"
+#include "physics/fixedjoint.h"
 #include "kernel/nfileserver2.h"
 #include "util/nstring.h"
 #include "gfx2/ngfxserver2.h"
@@ -321,6 +322,16 @@ AMotor*
 Server::CreateAMotor() const
 {
     return AMotor::Create();
+}
+
+//------------------------------------------------------------------------------
+/**
+Create an FixedJoint object.
+*/
+FixedJoint*
+Server::CreateFixedJoint() const
+{
+	return FixedJoint::Create();
 }
 
 //------------------------------------------------------------------------------
