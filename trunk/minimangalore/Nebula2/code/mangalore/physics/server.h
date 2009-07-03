@@ -38,6 +38,7 @@ class Hinge2Joint;
 class AMotor;
 class MouseGripper;
 class AreaImpulse;
+class FixedJoint; //added by ldw
 
 class Server : public Foundation::RefCounted
 {
@@ -93,6 +94,8 @@ public:
     virtual BallJoint* CreateBallJoint() const;
     /// create a new amotor object
     virtual AMotor* CreateAMotor() const;
+	/// create a new fixed joint object	//added by ldw
+	virtual FixedJoint* CreateFixedJoint() const;
     /// create a box shape object
     virtual BoxShape* CreateBoxShape(const matrix44& m, MaterialType matType, const vector3& size) const;
     /// create a sphere shape object

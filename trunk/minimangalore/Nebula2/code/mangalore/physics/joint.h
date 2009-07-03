@@ -31,6 +31,7 @@ public:
         SliderJoint,
         Hinge2Joint,
         AMotor,
+		FixedJoint,		//added by ldw
 
         NumJointTypes,
         InvalidType,
