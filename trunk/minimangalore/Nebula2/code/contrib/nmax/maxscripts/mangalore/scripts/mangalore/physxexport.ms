@@ -65,11 +65,18 @@ fn nSize3 s =
 -- y = o.height
 -- z = o.length
 -------------------------------------------------------------------------------
-fn ExportODEBox o =
+fn ExportODEBox o isStatic=
 (
---    o.pos.z += o.size.z * 1.5;
-    pos = in coordsys parent o.pos;
-    rot = in coordsys parent o.rotation;
+	if(isStatic == true) then
+	(
+	    pos = o.pos;
+        rot = o.rotation;
+	)
+	else
+	(
+	    pos = in coordsys parent o.pos;
+        rot = in coordsys parent o.rotation;
+	)
 	
 	scale = nGetGeomScaleValue();
 	pos.x *= scale;
@@ -99,9 +106,16 @@ fn ExportODEBox o =
 -- @name ExportODESphere
 --
 -------------------------------------------------------------------------------
-fn ExportODESphere o =
+fn ExportODESphere o isStatic=
 (
-    pos = in coordsys parent o.pos;
+    if(isStatic == true) then
+	(
+	 pos = o.pos;    
+	)
+	else
+	(
+	 pos = in coordsys parent o.pos;     
+	)
 	
 	scale = nGetGeomScaleValue();
 	pos.x *= scale;
@@ -121,10 +135,19 @@ fn ExportODESphere o =
 -- @name ExportODECapsule
 --
 -------------------------------------------------------------------------------
-fn ExportODECapsule o =
+fn ExportODECapsule o isStatic=
 (
-    pos = in coordsys parent o.pos;
-    rot = in coordsys parent o.rotation;
+	if(isStatic == true) then
+	(
+	 pos = o.pos;
+     rot = o.rotation;
+	)
+	else
+	(
+	 pos = in coordsys parent o.pos;
+     rot = in coordsys parent o.rotation;
+	)
+   
 
 	scale = nGetGeomScaleValue();
 	pos.x *= scale;
@@ -146,21 +169,21 @@ fn ExportODECapsule o =
 -- @name ExportODEShape
 --
 -------------------------------------------------------------------------------
-fn ExportODEShape o =
+fn ExportODEShape o isStatic=
 (
     c = (classof o.baseobject);
 
     if( c == ODEBox ) then
     (
-        ExportODEBox o;
+        ExportODEBox o isStatic;
     )
     else if( c == ODESphere ) then
     (
-        ExportODESphere o;
+        ExportODESphere o isStatic;
     )
     else if( c == ODECapsule ) then
     (
-        ExportODECapsule o;
+        ExportODECapsule o isStatic;
     )
 )
 
@@ -206,9 +229,9 @@ fn IsODEShape o =
 -------------------------------------------------------------------------------
 fn ExportODEBody o m isRagDoll =
 (
-    pos = in coordsys world o.pos;
+    pos = in coordsys world o.transform.position;
     --pos = in coordsys world o.center;
-    rot = in coordsys world o.rotation;
+    rot = in coordsys world o.transform.rotation;
 
 	scale = nGetGeomScaleValue();
 	pos.x *= scale;
@@ -218,7 +241,7 @@ fn ExportODEBody o m isRagDoll =
     xmlElementBegin "RigidBody"
     xmlAddAttribute "name" o.name;
     xmlAddAttribute "pos" (nPoint3 pos)
-        xmlAddAttribute "rot" (nQuat rot)
+    xmlAddAttribute "rot" (nQuat rot)
 
     --if( m.hasJoint == true )
     --    xmlAddAttribute "jointCollide" "true";
@@ -251,7 +274,8 @@ fn ExportODEBody o m isRagDoll =
     -- export ode shape
     for shape in shapeArray do
     (
-        ExportODEShape shape;
+	    isStatic = false;
+        ExportODEShape shape isStatic;
     )
 
     xmlElementEnd() -- RigidBody
@@ -621,21 +645,33 @@ fn ExportODE filename physicType =
 
     local odeBodyArray = #();
     local odeJointArray = #();
+    local odeStaticShapeArray = #();
 
     -- collect ode body
     for o in objects do
-    (
-        if( o != undefined ) then
+    (	
+        if o == undefined then continue;       
+	 local notFound = true; 
+        for m in o.modifiers do
         (
-            for m in o.modifiers do
+            if( m.name == "ODE Body (Mangalore)" ) then
             (
-                if( m.name == "ODE Body (Mangalore)" ) then
-                (
-                    __odebody = ODEBody o m;
-                    append odeBodyArray __odebody;
-                )
+                __odebody = ODEBody o m;
+                append odeBodyArray __odebody;
+	            notFound  = false;
             )
         )
+	
+	    if( notFound == true) then
+	    (
+	        for c in o.children do
+    	    (
+      	        if( IsODEShape(c) == true ) then
+       	        (
+          	        append odeStaticShapeArray c;
+     		    )
+            )	
+	    )	
     )
 
     -- collect ode joint
@@ -662,7 +698,7 @@ fn ExportODE filename physicType =
     xmlAddAttribute "numBodies" odeBodyArray.count;
     xmlAddAttribute "numJoints" odeJointArray.count;
     xmlAddAttribute "numMeshes" 0;
-    --xmlAddAttribute "numShapes" 0;
+    xmlAddAttribute "numShapes" odeStaticShapeArray.count ;
         
     -- todo : count shape
     -- todo : mesh ?
@@ -678,6 +714,14 @@ fn ExportODE filename physicType =
     (
         ExportODEJoint odeJoint.o odeJoint.m
     )
+   
+	-- export ode shape
+    for odeShape in odeStaticShapeArray do
+    (
+	    isStatic = true;
+        ExportODEShape odeShape isStatic;
+    )
+
 
     xmlElementEnd() -- Composite
 
