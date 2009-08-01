@@ -1,11 +1,11 @@
 # ---
 # $parser:ntclserver$ $class:ntransformnode$
 # ---
-new ntransformnode stdlight
-    sel stdlight
-    .seteuler -45.000000 45.000000 0.000000
+#new ntransformnode stdlight
+#   sel stdlight    
     new nlightnode l
         sel l
+		.seteuler -45.000000 45.000000 0.000000
         .setlocalbox 0.000000 0.000000 0.000000 1000.000000 1000.000000 1000.000000
         .setposition 0.000000 0.000000 100.000000
         .setfloat "LightRange" 1000.000000
@@ -15,7 +15,7 @@ new ntransformnode stdlight
         .settype "Directional"
         .setcastshadows true
     sel ..
-sel ..
+#sel ..
 #new nshapenode skybox
 #    sel skybox
 #    .setlocalbox 0.000000 0.000000 0.000000 225.000000 225.000000 225.000000
